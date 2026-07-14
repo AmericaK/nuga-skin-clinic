@@ -43,6 +43,7 @@ export default function Treatment({ slug }: { slug: string }) {
         <div className="wrap nav__inner">
           <a className="brand" href="/"><img className="brand__logo" src="/logo.png" alt="Nuga Skin Clinic" /></a>
           <nav className="nav__links">
+            <a className="nav__deal" href="/deals">Deals</a>
             <a className="nav__link" href="/#services">Services</a>
             <a className="nav__link" href="/#reviews">Results</a>
             <a className="nav__link" href="/about">About</a>
