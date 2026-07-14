@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { TREATMENTS } from "./treatments";
 
 /* ==========================================================================
    NUGA SKIN CLINIC — Home (v3 · Haoderm 레퍼런스 포맷)
@@ -13,16 +14,9 @@ const CONFIG = {
   FACEBOOK: "https://www.facebook.com/nugabeautyskincare/",
   GOOGLE_REVIEWS: "https://www.google.com/maps/search/?api=1&query=Nuga%20Skin%20Clinic%20Duluth%20GA",
   // 히어로 슬라이드쇼: client/public/ 에 hero1~hero5.jpg. 4초 간격 크로스페이드.
-  HERO_IMAGES: ["/hero1.JPG", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
+  HERO_IMAGES: ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
   HERO_INTERVAL: 4000,
 };
-
-const SERVICES = [
-  { en: "Laser & Lifting", kr: "레이저 · 리프팅", items: ["Thermage FLX", "Ultherapy", "Potenza", "InMode"], note: "정품 프리미엄 장비로 진행하는 비수술 리프팅과 피부 탄력 케어." },
-  { en: "Injectables", kr: "주사 시술", items: ["Botox", "Filler", "Thread Lift"], note: "의료 전문 인력이 시술하는 보톡스 · 필러 · 실 리프팅." },
-  { en: "Skin Treatments", kr: "피부 케어", items: ["RF Microneedling", "HydraFacial", "Pigmentation", "Acne-scar Care"], note: "색소 · 여드름 흉터 · 모공까지, 피부 결을 바로잡는 정밀 케어." },
-  { en: "Wellness", kr: "웰니스", items: ["Eastern Meridian Massage · 경락"], note: "겉이 아니라 흐름부터. 몸의 균형을 되찾는 동양 경락 관리." },
-];
 
 const REVIEWS = [
   { quote: "5년째 다니고 있어요. Amy Byun 원장님이 늘 꼼꼼하게 봐주시고 꼭 필요한 케어만 권해주세요.", by: "Hyewon K. · Microneedling · Google" },
@@ -146,23 +140,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SERVICES ===== */}
+      {/* ===== TREATMENTS (Haoderm 'Solution' 스타일 masonry) ===== */}
       <section className="section" id="services">
         <div className="wrap">
-          <div className="section__head reveal">
-            <p className="eyebrow section__eyebrow">What we do</p>
-            <h2 className="section__title">Precision care, from laser to touch.<span className="kr">레이저부터 손끝 케어까지</span></h2>
+          <div className="solhead reveal">
+            <h2 className="solhead__title">&lsquo;Nuga Solutions&rsquo;</h2>
+            <p className="solhead__sub">
+              Personalized, medical-grade treatments for beauty that starts with healthy skin.
+              <span className="kr">건강한 피부에서 시작하는 아름다움 — 개개인에 맞춘 의료급 시술.</span>
+            </p>
           </div>
-          <div className="svc reveal">
-            {SERVICES.map((s) => (
-              <div className="svc__cell" key={s.en}>
-                <div className="svc__cat"><h3>{s.en}</h3><span className="kr">{s.kr}</span></div>
-                <ul className="svc__list">{s.items.map((it) => (<li key={it}>{it}</li>))}</ul>
-                <p className="svc__note kr">{s.note}</p>
+
+          <div className="solgrid reveal">
+            {[1, 2, 3].map((col) => (
+              <div className={`solcol${col !== 2 ? " solcol--offset" : ""}`} key={col}>
+                {TREATMENTS.filter((t) => t.col === col).map((t) => (
+                  <a className="solcard" key={t.name} href={`/treatments/${t.slug}`}>
+                    <img src={t.img} alt={t.name} />
+                    <span className="solcard__scrim" aria-hidden />
+                    <div className="solcard__body">
+                      <h3 className="solcard__name">&lsquo;{t.name}&rsquo;</h3>
+                      <span className="solcard__kr kr">{t.kr}</span>
+                      <span className="solcard__btn">View More <svg viewBox="0 0 24 24" aria-hidden><path d="M5 12h12M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                  </a>
+                ))}
               </div>
             ))}
           </div>
-          <div className="meridian reveal" style={{ marginTop: "clamp(48px, 7vw, 96px)" }} aria-hidden />
         </div>
       </section>
 
