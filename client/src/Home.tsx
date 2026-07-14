@@ -171,7 +171,7 @@ export default function Home() {
       {/* ===== REVIEWS (green) ===== */}
       <section className="section section--dark" id="reviews">
         <div className="wrap">
-          <div className="section__head reveal">
+          <div className="section__head section__head--center reveal">
             <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>Why Atlanta trusts Nuga</p>
             <h2 className="section__title">Results our clients come back for.</h2>
           </div>

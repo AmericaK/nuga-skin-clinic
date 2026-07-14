@@ -184,6 +184,9 @@ body {
 .section { padding-block: clamp(72px, 11vw, 140px); }
 .section--dark { background: var(--forest); color: var(--porcelain); }
 .section__head { max-width: 60ch; margin-bottom: 56px; }
+.section__head--center { max-width: none; text-align: center; margin-left: auto; margin-right: auto; }
+.section__head--center .section__title { white-space: nowrap; }
+@media (max-width: 700px) { .section__head--center .section__title { white-space: normal; } }
 .section__eyebrow { margin-bottom: 18px; }
 .section__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(32px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.01em; }
 .section__title .kr { display: block; font-family: var(--f-display-kr); font-size: 0.62em; color: var(--gold-deep); margin-top: 10px; }
