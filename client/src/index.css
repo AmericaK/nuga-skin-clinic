@@ -1,0 +1,363 @@
+/* =========================================================================
+   NUGA SKIN CLINIC — Design System
+   Palette : Charcoal ink · Porcelain · Antique Gold  (Deep Gold + Charcoal)
+   Type    : Cormorant Garamond (EN display) · Noto Serif KR (KR display)
+             Inter (EN body/UI) · Noto Sans KR (KR body)
+   Signature: a hairline GOLD "meridian" that threads the whole page
+   ========================================================================= */
+
+:root {
+  --ink: #1c1b1a;          /* warm near-black — text & dark sections        */
+  --ink-soft: #45413d;     /* secondary text                                */
+  --porcelain: #f7f3ee;    /* warm ivory base (skin/porcelain)              */
+  --porcelain-2: #efe8de;  /* slightly deeper ivory for banding             */
+  --stone: #d9cfc1;        /* soft neutral for hairlines on light           */
+  --gold: #b08a3e;         /* muted antique gold — used with restraint      */
+  --gold-deep: #8a6a2c;    /* hover / depth                                 */
+  --gold-tint: #ede3cf;    /* faint gold wash                               */
+
+  --forest: #143a2e;       /* deep forest green — reference brand tone      */
+  --forest-2: #0f2d24;     /* darker green for depth                        */
+
+  --maxw: 1200px;
+  --gutter: clamp(20px, 5vw, 64px);
+
+  --f-display: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
+  --f-display-kr: "Noto Serif KR", "Cormorant Garamond", serif;
+  --f-body: "Inter", "Noto Sans KR", system-ui, sans-serif;
+  --f-kr: "Noto Sans KR", "Inter", system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--porcelain);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
+
+/* ---- Shared type helpers ------------------------------------------------ */
+.eyebrow {
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.kr { font-family: var(--f-kr); }
+.display { font-family: var(--f-display); font-weight: 500; line-height: 1.02; letter-spacing: -0.01em; }
+
+/* The signature meridian line — a thin gold rule with a small node */
+.meridian {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 12%, var(--gold) 88%, transparent);
+  opacity: 0.55;
+}
+.meridian::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 6px; height: 6px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: var(--gold);
+}
+
+/* Buttons ----------------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  font-family: var(--f-body); font-size: 14px; font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 26px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.btn--solid { background: var(--ink); color: var(--porcelain); }
+.btn--solid:hover { background: var(--gold-deep); border-color: var(--gold-deep); }
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--porcelain); }
+.btn--onDark { border-color: var(--porcelain); color: var(--porcelain); }
+.btn--onDark:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+
+/* =========================================================================
+   NAV
+   ========================================================================= */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  background: #ffffff;
+  border-bottom: 1px solid var(--stone);
+  transition: box-shadow 0.4s var(--ease);
+}
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+.nav.is-scrolled { box-shadow: 0 2px 18px rgba(20, 58, 46, 0.07); }
+
+.brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: inherit; }
+.brand__logo { height: 48px; width: auto; display: block; }
+.brand__mark { font-family: var(--f-display); font-size: 26px; font-weight: 600; letter-spacing: 0.02em; color: var(--gold-deep); }
+.brand__sub { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-soft); }
+
+.nav__links { display: flex; align-items: center; gap: 34px; }
+.nav__link {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+  color: var(--ink); text-decoration: none; position: relative; padding: 4px 0;
+}
+.nav__link::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0;
+  background: var(--gold-deep); transition: width 0.3s var(--ease);
+}
+.nav__link:hover::after { width: 100%; }
+.nav__cta { padding: 10px 20px; font-size: 13px; }
+.nav__burger { display: none; background: none; border: 0; cursor: pointer; font-size: 22px; color: var(--ink); }
+
+/* =========================================================================
+   HERO
+   ========================================================================= */
+.hero { position: relative; padding-top: 74px; background: var(--porcelain); overflow: hidden; }
+.hero__grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(24px, 5vw, 72px);
+  align-items: center; min-height: calc(100svh - 74px); padding-block: clamp(40px, 7vw, 96px);
+}
+.hero__eyebrow { margin-bottom: 26px; }
+.hero__h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(46px, 8.5vw, 96px); line-height: 0.98; letter-spacing: -0.015em; }
+.hero__h1 em { font-style: italic; color: var(--gold-deep); }
+.hero__kr { font-family: var(--f-display-kr); font-weight: 500; font-size: clamp(20px, 3.4vw, 30px); color: var(--ink); margin-top: 20px; letter-spacing: -0.01em; }
+.hero__lead { max-width: 46ch; margin-top: 26px; color: var(--ink-soft); }
+.hero__lead + .hero__lead { margin-top: 12px; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
+
+.hero__trust { display: flex; align-items: center; gap: 22px; margin-top: 44px; flex-wrap: wrap; }
+.hero__stat { display: flex; flex-direction: column; }
+.hero__stat b { font-family: var(--f-display); font-size: 30px; font-weight: 600; color: var(--ink); line-height: 1; }
+.hero__stat span { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
+.hero__stat-div { width: 1px; height: 34px; background: var(--stone); }
+
+/* Right visual: intentional art-direction panel (photo slot).
+   Replace with a real image later — drop /hero.jpg into client/public/ and
+   swap the .hero__art background per the comment in Home.tsx. */
+.hero__art {
+  position: relative; align-self: stretch; min-height: 420px; border-radius: 3px; overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 78% 18%, rgba(176, 138, 62, 0.28), transparent 60%),
+    linear-gradient(155deg, #efe7db 0%, #e6d8c4 42%, #d9c4a4 100%);
+  border: 1px solid var(--stone);
+}
+.hero__art::before {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(115deg, transparent 0 26px, rgba(28,27,26,0.03) 26px 27px);
+}
+.hero__monogram {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--f-display); font-size: clamp(90px, 16vw, 190px); font-weight: 500;
+  color: rgba(138, 106, 44, 0.16); letter-spacing: 0.04em;
+}
+.hero__art-caption {
+  position: absolute; left: 18px; bottom: 16px;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep);
+  background: rgba(247,243,238,0.7); padding: 5px 10px; border-radius: 2px;
+}
+/* Real photo — fills the panel, cover crop, faint gold vignette to seat it in the palette */
+.hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero__art:has(.hero__photo)::before {
+  z-index: 1;
+  background: linear-gradient(160deg, transparent 55%, rgba(28,27,26,0.18));
+}
+/* vertical meridian line running down the hero seam (signature) */
+.hero__seam { position: absolute; top: 74px; bottom: 0; left: calc(52.5%); width: 1px;
+  background: linear-gradient(var(--gold), transparent); opacity: 0.4; pointer-events: none; }
+
+/* =========================================================================
+   SECTION scaffolding
+   ========================================================================= */
+.section { padding-block: clamp(72px, 11vw, 140px); }
+.section--dark { background: var(--forest); color: var(--porcelain); }
+.section__head { max-width: 60ch; margin-bottom: 56px; }
+.section__eyebrow { margin-bottom: 18px; }
+.section__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(32px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.01em; }
+.section__title .kr { display: block; font-family: var(--f-display-kr); font-size: 0.62em; color: var(--gold-deep); margin-top: 10px; }
+.section--dark .section__title .kr { color: var(--gold); }
+
+/* ---- Services ----------------------------------------------------------- */
+.svc { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
+.svc__cell { background: var(--porcelain); padding: clamp(26px, 3vw, 40px); display: flex; flex-direction: column; gap: 14px; transition: background 0.4s var(--ease); }
+.svc__cell:hover { background: var(--porcelain-2); }
+.svc__cat { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.svc__cat h3 { font-family: var(--f-display); font-weight: 600; font-size: 27px; }
+.svc__cat .kr { font-family: var(--f-kr); font-size: 13px; color: var(--gold-deep); letter-spacing: 0.02em; }
+.svc__list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.svc__list li {
+  font-size: 13px; font-weight: 500; color: var(--ink-soft);
+  border: 1px solid var(--stone); border-radius: 999px; padding: 6px 13px; background: var(--porcelain);
+}
+.svc__note { font-size: 14px; color: var(--ink-soft); }
+
+/* ---- Reviews (dark) ----------------------------------------------------- */
+.rev__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.rev__card { border: 1px solid rgba(247,243,238,0.16); padding: 30px 28px; border-radius: 3px; display: flex; flex-direction: column; gap: 16px; }
+.rev__stars { color: var(--gold); letter-spacing: 3px; font-size: 15px; }
+.rev__quote { font-family: var(--f-display); font-weight: 400; font-size: 21px; line-height: 1.4; color: var(--porcelain); }
+.rev__by { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,243,238,0.6); margin-top: auto; }
+.rev__foot { margin-top: 46px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
+.rev__foot a { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; border-bottom: 1px solid transparent; }
+.rev__foot a:hover { border-bottom-color: var(--gold); }
+
+/* ---- Visit -------------------------------------------------------------- */
+.visit__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.visit__nap { display: flex; flex-direction: column; gap: 26px; }
+.visit__row { display: flex; flex-direction: column; gap: 4px; }
+.visit__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); }
+.visit__val { font-size: 18px; color: var(--ink); }
+.visit__val a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--stone); }
+.visit__val a:hover { border-bottom-color: var(--gold-deep); }
+.visit__hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 20px; font-size: 15px; color: var(--ink-soft); }
+.visit__hours dt { font-weight: 600; color: var(--ink); }
+.visit__map { width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--stone); border-radius: 3px; filter: grayscale(0.25) contrast(1.02); }
+.visit__social { display: flex; gap: 14px; margin-top: 8px; }
+.visit__social a { font-size: 13px; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--stone); padding: 8px 16px; border-radius: 999px; }
+.visit__social a:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
+
+/* ---- Footer ------------------------------------------------------------- */
+.foot { background: var(--forest); color: var(--porcelain); padding-block: 56px; }
+.foot__grid { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.foot__brand .brand__mark { color: var(--gold); }
+.foot__brand .brand__sub { color: rgba(247,243,238,0.6); }
+.foot__tag { max-width: 30ch; color: rgba(247,243,238,0.7); margin-top: 14px; font-size: 15px; }
+.foot__nap { font-size: 14px; color: rgba(247,243,238,0.75); line-height: 1.9; }
+.foot__nap a { color: var(--gold); text-decoration: none; }
+.foot__legal { margin-top: 40px; font-size: 12px; color: rgba(247,243,238,0.45); letter-spacing: 0.03em; }
+
+/* =========================================================================
+   Scroll-reveal + motion
+   ========================================================================= */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+@media (max-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr; min-height: auto; }
+  .hero__art { min-height: 300px; order: -1; }
+  .hero__seam { display: none; }
+  .svc { grid-template-columns: 1fr; }
+  .rev__grid { grid-template-columns: 1fr; }
+  .visit__grid { grid-template-columns: 1fr; }
+  .nav__links { display: none; }
+  .nav__burger { display: block; }
+}
+
+/* =========================================================================
+   ABOUT PAGE
+   ========================================================================= */
+.subpage { padding-top: calc(74px + clamp(48px, 8vw, 96px)); }
+.about__intro { max-width: 72ch; }
+.about__lead { margin-top: 22px; color: var(--ink-soft); font-size: clamp(17px, 2vw, 19px); }
+.about__lead + .about__lead { margin-top: 12px; }
+
+/* Team: 단체 사진 + 설명 (좌 사진 / 우 텍스트) */
+.team { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.team__photo { border-radius: 3px; overflow: hidden; border: 1px solid rgba(247,243,238,0.16); }
+.team__img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+.team__ph {
+  aspect-ratio: 4 / 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background:
+    radial-gradient(120% 90% at 78% 18%, rgba(176,138,62,0.22), transparent 60%),
+    linear-gradient(155deg, #1b4436, #0f2d24);
+}
+.team__ph-mark { font-family: var(--f-display); font-size: clamp(34px, 5vw, 52px); color: rgba(176,138,62,0.5); }
+.team__ph-cap { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,238,0.5); }
+.team__text .section__title { font-size: clamp(28px, 4vw, 42px); }
+
+/* Staff grid — 4명 */
+.staff__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 2.4vw, 34px); }
+.staff__card { display: flex; flex-direction: column; }
+.staff__photo {
+  position: relative; aspect-ratio: 3 / 4; border-radius: 3px; overflow: hidden; margin-bottom: 20px;
+  background: linear-gradient(160deg, var(--porcelain-2), var(--stone));
+  border: 1px solid var(--stone); display: grid; place-items: center;
+}
+.staff__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.staff__initial { font-family: var(--f-display); font-size: 64px; color: var(--gold-deep); opacity: 0.55; }
+.staff__name { font-family: var(--f-display); font-weight: 600; font-size: 24px; line-height: 1.1; }
+.staff__role { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); margin-top: 8px; }
+.staff__bio { font-size: 14.5px; color: var(--ink-soft); margin-top: 14px; line-height: 1.6; }
+
+.about__cta { margin-top: clamp(48px, 7vw, 88px); }
+
+@media (max-width: 900px) {
+  .team { grid-template-columns: 1fr; }
+  .staff__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .staff__grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================================
+   REFERENCE REDESIGN — full-bleed hero, green intro, right rail
+   ========================================================================= */
+
+/* Full-bleed hero image (텍스트 없음, 레퍼런스 스타일) */
+.herofull {
+  position: relative; width: 100%; height: 60vh; min-height: 420px;
+  margin-top: 74px; overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 72% 20%, rgba(176,138,62,0.20), transparent 60%),
+    linear-gradient(155deg, #efe7db 0%, #e0cfb4 55%, #cbb59a 100%);
+}
+.herofull img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+.herofull__cap {
+  position: absolute; left: 20px; bottom: 18px;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep);
+  background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 2px;
+}
+
+/* Green intro (히어로 아래 인용구 섹션) */
+.intro { background: var(--forest); color: #fff; text-align: center; }
+.intro__inner { max-width: 800px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) var(--gutter); }
+.intro__h1 {
+  font-family: var(--f-display); font-weight: 500; letter-spacing: -0.01em;
+  font-size: clamp(38px, 6.4vw, 74px); line-height: 1.05; color: #fff;
+}
+.intro__sub { font-family: var(--f-display-kr); font-weight: 500; font-size: clamp(18px, 2.6vw, 26px); color: var(--gold); margin-top: 18px; }
+.intro__lead { margin-top: 28px; color: rgba(255,255,255,0.82); font-size: clamp(15px, 1.8vw, 17px); line-height: 1.95; }
+.intro__lead .kr { display: block; margin-top: 10px; color: rgba(255,255,255,0.7); }
+.intro__cta { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.intro__trust { margin-top: 44px; display: inline-flex; gap: 22px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.intro__stat { display: flex; flex-direction: column; }
+.intro__stat b { font-family: var(--f-display); font-size: 27px; font-weight: 600; color: #fff; line-height: 1; }
+.intro__stat span { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 6px; }
+.intro__div { width: 1px; height: 30px; background: rgba(255,255,255,0.25); }
+
+/* Gold button (그린 위에서 눈에 띄게) */
+.btn--gold { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+.btn--gold:hover { background: var(--gold-deep); border-color: var(--gold-deep); color: #fff; }
+.btn--line { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
+.btn--line:hover { background: #fff; color: var(--forest); border-color: #fff; }
+
+/* Right fixed social/contact rail (레퍼런스 우측 아이콘 열) */
+.rail { position: fixed; right: 16px; top: 50%; transform: translateY(-50%); z-index: 60; display: flex; flex-direction: column; gap: 10px; }
+.rail a, .rail button {
+  width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer;
+  background: var(--forest); color: #fff; display: grid; place-items: center;
+  box-shadow: 0 4px 14px rgba(20,58,46,0.22); transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.rail a:hover, .rail button:hover { background: var(--gold); color: var(--ink); transform: translateY(-2px); }
+.rail svg { width: 19px; height: 19px; fill: currentColor; }
+@media (max-width: 640px) { .rail { right: 10px; gap: 8px; } .rail a, .rail button { width: 40px; height: 40px; } }
