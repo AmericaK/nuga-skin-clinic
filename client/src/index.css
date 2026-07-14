@@ -321,7 +321,13 @@ body {
     radial-gradient(120% 90% at 72% 20%, rgba(176,138,62,0.20), transparent 60%),
     linear-gradient(155deg, #efe7db 0%, #e0cfb4 55%, #cbb59a 100%);
 }
-.herofull img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+.herofull img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+/* 슬라이드쇼 크로스페이드 */
+.herofull__img { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+.herofull__img.is-active { opacity: 1; }
+.herofull__dots { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 9px; z-index: 3; }
+.herofull__dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; background: rgba(255,255,255,0.55); transition: background 0.3s var(--ease), transform 0.3s var(--ease); }
+.herofull__dots button.is-on { background: var(--gold); transform: scale(1.2); }
 .herofull__cap {
   position: absolute; left: 20px; bottom: 18px;
   font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep);
