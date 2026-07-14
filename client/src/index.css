@@ -101,11 +101,11 @@ body {
   border-bottom: 1px solid var(--stone);
   transition: box-shadow 0.4s var(--ease);
 }
-.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 118px; }
 .nav.is-scrolled { box-shadow: 0 2px 18px rgba(20, 58, 46, 0.07); }
 
 .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: inherit; }
-.brand__logo { height: 48px; width: auto; display: block; }
+.brand__logo { height: 100px; width: auto; display: block; }
 .brand__mark { font-family: var(--f-display); font-size: 26px; font-weight: 600; letter-spacing: 0.02em; color: var(--gold-deep); }
 .brand__sub { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-soft); }
 
@@ -125,10 +125,10 @@ body {
 /* =========================================================================
    HERO
    ========================================================================= */
-.hero { position: relative; padding-top: 74px; background: var(--porcelain); overflow: hidden; }
+.hero { position: relative; padding-top: 118px; background: var(--porcelain); overflow: hidden; }
 .hero__grid {
   display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(24px, 5vw, 72px);
-  align-items: center; min-height: calc(100svh - 74px); padding-block: clamp(40px, 7vw, 96px);
+  align-items: center; min-height: calc(100svh - 118px); padding-block: clamp(40px, 7vw, 96px);
 }
 .hero__eyebrow { margin-bottom: 26px; }
 .hero__h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(46px, 8.5vw, 96px); line-height: 0.98; letter-spacing: -0.015em; }
@@ -175,7 +175,7 @@ body {
   background: linear-gradient(160deg, transparent 55%, rgba(28,27,26,0.18));
 }
 /* vertical meridian line running down the hero seam (signature) */
-.hero__seam { position: absolute; top: 74px; bottom: 0; left: calc(52.5%); width: 1px;
+.hero__seam { position: absolute; top: 118px; bottom: 0; left: calc(52.5%); width: 1px;
   background: linear-gradient(var(--gold), transparent); opacity: 0.4; pointer-events: none; }
 
 /* =========================================================================
@@ -267,7 +267,7 @@ body {
 /* =========================================================================
    ABOUT PAGE
    ========================================================================= */
-.subpage { padding-top: calc(74px + clamp(48px, 8vw, 96px)); }
+.subpage { padding-top: calc(118px + clamp(48px, 8vw, 96px)); }
 .about__intro { max-width: 72ch; }
 .about__lead { margin-top: 22px; color: var(--ink-soft); font-size: clamp(17px, 2vw, 19px); }
 .about__lead + .about__lead { margin-top: 12px; }
@@ -317,7 +317,7 @@ body {
 /* Full-bleed hero image (텍스트 없음, 레퍼런스 스타일) */
 .herofull {
   position: relative; width: 100%; height: 60vh; min-height: 420px;
-  margin-top: 74px; overflow: hidden;
+  margin-top: 118px; overflow: hidden;
   background:
     radial-gradient(120% 90% at 72% 20%, rgba(176,138,62,0.20), transparent 60%),
     linear-gradient(155deg, #efe7db 0%, #e0cfb4 55%, #cbb59a 100%);
@@ -411,7 +411,7 @@ body {
 /* =========================================================================
    TREATMENT DETAIL PAGE
    ========================================================================= */
-.tx-hero.subpage { padding-top: calc(74px + clamp(40px, 6vw, 72px)); padding-bottom: clamp(40px, 6vw, 72px); }
+.tx-hero.subpage { padding-top: calc(118px + clamp(40px, 6vw, 72px)); padding-bottom: clamp(40px, 6vw, 72px); }
 .tx-hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .tx-hero__title { font-family: var(--f-display); font-weight: 600; font-size: clamp(36px, 6vw, 60px); line-height: 1.03; margin-top: 14px; }
 .tx-hero__kr { font-family: var(--f-display-kr); font-size: clamp(17px, 2.4vw, 22px); color: var(--gold-deep); margin-top: 10px; }
@@ -442,3 +442,13 @@ body {
   .tx-others { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 480px) { .tx-others { grid-template-columns: repeat(2, 1fr); } }
+
+
+/* Larger nav logo — mobile scale-down */
+@media (max-width: 640px) {
+  .nav__inner { height: 88px; }
+  .brand__logo { height: 68px; }
+  .herofull { margin-top: 88px; }
+  .subpage { padding-top: calc(88px + clamp(48px, 8vw, 96px)); }
+  .tx-hero.subpage { padding-top: calc(88px + clamp(40px, 6vw, 72px)); }
+}
