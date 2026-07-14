@@ -1,4 +1,6 @@
 // Treatment data (shared by Home masonry + detail pages). English only.
+export type ResultGroup = { title?: string; caption?: string; imgs: string[] };
+
 export type Treatment = {
   slug: string;
   name: string;
@@ -7,6 +9,12 @@ export type Treatment = {
   summary: string;
   about: string;
   goodFor: string[];
+  // Optional rich detail-page content (Wix-style layout)
+  whatIs?: string;       // "What is X?" description
+  deviceImg?: string;    // product/device image for the What-is section
+  whyImg?: string;       // image for the "Why X?" section (shown uncropped)
+  benefits?: string[];   // "Why X?" bullet list
+  results?: ResultGroup[]; // Clinical Results (before/after groups)
 };
 
 export const TREATMENTS: Treatment[] = [
@@ -19,6 +27,35 @@ export const TREATMENTS: Treatment[] = [
     about:
       "Thermage FLX uses monopolar radiofrequency to gently heat the deeper layers of your skin, stimulating your body's own collagen. It's a non-invasive treatment that firms and contours the face and body — typically in a single session, with little to no downtime.",
     goodFor: ["Sagging skin & jawline", "Fine lines & wrinkles", "Face & body contouring"],
+    whatIs:
+      "Non-invasive radiofrequency (RF) therapy for the treatment of periorbital wrinkles and rhytids — including the upper and lower eyelids — non-invasive treatment of wrinkles, and temporary improvement in the appearance of cellulite.",
+    deviceImg: "/thermage-device.png",
+    whyImg: "/thermage-why.jpg",
+    benefits: [
+      "Tightens skin on your face, neck and/or body",
+      "Smooths wrinkles by restructuring collagen",
+      "Targets deep within your skin to remove lines more effectively",
+      "Temporarily improves the appearance of cellulite",
+      "Works in just one treatment",
+      "Safe, effective, non-invasive and non-surgical",
+      "Requires little recovery time",
+      "Works on all skin types — and results last for years",
+    ],
+    results: [
+      {
+        title: "Face",
+        caption:
+          "Softened lines around the mouth, eyes and forehead; improved definition along the jawline and under the chin.",
+        imgs: ["/thermage-r1.jpg", "/thermage-r2.jpg"],
+      },
+      {
+        title: "Body",
+        caption:
+          "Improved contours and the appearance of crepey skin; smoother skin on the abdomen and legs.",
+        imgs: ["/thermage-r3.jpg", "/thermage-r4.jpg"],
+      },
+      { imgs: ["/thermage-r5.jpg", "/thermage-r6.jpg"] },
+    ],
   },
   {
     slug: "laser",

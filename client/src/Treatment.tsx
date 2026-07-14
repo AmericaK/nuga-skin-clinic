@@ -1,6 +1,15 @@
 import { useEffect } from "react";
 import { TREATMENTS, BOOKING_URL } from "./treatments";
 
+function Media({ src, label, className }: { src?: string; label: string; className?: string }) {
+  if (!src) return <div className={`tx-ph ${className || ""}`} data-label={label} />;
+  return (
+    <div className={`tx-ph ${className || ""}`} data-label={label}>
+      <img src={src} alt={label} loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} />
+    </div>
+  );
+}
+
 export default function Treatment({ slug }: { slug: string }) {
   const t = TREATMENTS.find((x) => x.slug === slug);
 
@@ -20,9 +29,8 @@ export default function Treatment({ slug }: { slug: string }) {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [t]);
 
-  // Invalid slug → back home
   if (!t) {
     return (
       <div style={{ minHeight: "60vh", display: "grid", placeItems: "center", textAlign: "center", padding: 40 }}>
@@ -35,6 +43,7 @@ export default function Treatment({ slug }: { slug: string }) {
   }
 
   const others = TREATMENTS.filter((x) => x.slug !== slug);
+  const benefits = t.benefits && t.benefits.length ? t.benefits : t.goodFor;
 
   return (
     <>
@@ -70,29 +79,84 @@ export default function Treatment({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* ABOUT + GOOD FOR */}
+      {/* WHAT IS */}
       <section className="section">
-        <div className="wrap tx-body">
-          <div className="tx-about reveal">
-            <p className="eyebrow section__eyebrow">About</p>
-            <p className="tx-about__p">{t.about}</p>
-            <p className="tx-note">* Results vary by individual; a personalized plan is set at your consultation.</p>
+        <div className="wrap tx-split">
+          <div className="reveal">
+            <h2 className="tx-h2">What is {t.name}?</h2>
+            <p className="tx-p">{t.whatIs || t.about}</p>
           </div>
-          <aside className="tx-good reveal">
-            <p className="eyebrow section__eyebrow">Good for</p>
-            <ul className="tx-good__list">
-              {t.goodFor.map((g) => (<li key={g}>{g}</li>))}
+          <Media src={t.deviceImg} label={t.name} className="tx-ph--square reveal" />
+        </div>
+      </section>
+
+      {/* WHY */}
+      <section className="section section--soft">
+        <div className="wrap tx-split tx-split--rev">
+          <div className="reveal">
+            <h2 className="tx-h2">Why {t.name}?</h2>
+            <p className="tx-p" style={{ marginBottom: 18 }}>A few reasons our clients love this treatment:</p>
+            <ul className="tx-benefits">
+              {benefits.map((bnf) => (<li key={bnf}>{bnf}</li>))}
             </ul>
-            <a className="btn btn--gold" href={BOOKING_URL} target="_blank" rel="noreferrer" style={{ marginTop: 24 }}>Book now</a>
-          </aside>
+          </div>
+          {t.whyImg ? (
+            <div className="tx-why-img reveal"><img src={t.whyImg} alt={t.name} loading="lazy" /></div>
+          ) : (
+            <div className="tx-ph tx-ph--wide reveal">
+              <img src={t.img} alt={t.name} loading="lazy" />
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* CLINICAL RESULTS */}
+      {t.results && t.results.length > 0 && (
+        <section className="section">
+          <div className="wrap">
+            <div className="section__head section__head--center reveal">
+              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>Clinical Results</p>
+              <h2 className="section__title">Before &amp; after.</h2>
+            </div>
+            <div className="tx-results reveal">
+              {t.results.map((grp, gi) => (
+                <div className="tx-result-group" key={gi}>
+                  {grp.title && <h3 className="tx-result-title">{grp.title}</h3>}
+                  <div className="tx-result-imgs">
+                    {grp.imgs.map((im, ii) => (
+                      <Media key={ii} src={im} label="Before / After" className="tx-ph--result" />
+                    ))}
+                  </div>
+                  {grp.caption && <p className="tx-result-cap">{grp.caption}</p>}
+                </div>
+              ))}
+            </div>
+            <p className="tx-note" style={{ textAlign: "center", marginTop: 22 }}>
+              * Individual results vary. Photos are for illustration; your plan is set at consultation.
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* BOOK CTA */}
+      <section className="section section--dark">
+        <div className="wrap tx-cta">
+          <h2 className="section__title" style={{ color: "#fff" }}>Ready to start?</h2>
+          <p style={{ color: "rgba(247,243,238,0.82)", margin: "14px 0 26px", fontSize: 17 }}>
+            Book a consultation and we'll build a plan around your skin.
+          </p>
+          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+            <a className="btn btn--gold" href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
+            <a className="btn btn--line" href="tel:+17706872545">Call (770) 687-2545</a>
+          </div>
         </div>
       </section>
 
       {/* OTHER TREATMENTS */}
-      <section className="section section--dark">
+      <section className="section">
         <div className="wrap">
-          <div className="section__head reveal">
-            <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>More</p>
+          <div className="section__head section__head--center reveal">
+            <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>More</p>
             <h2 className="section__title">Explore other treatments.</h2>
           </div>
           <div className="tx-others reveal">
