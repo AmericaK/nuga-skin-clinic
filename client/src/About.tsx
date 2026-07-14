@@ -1,43 +1,41 @@
 import { useEffect, useState } from "react";
 
-/* ==========================================================================
+/*
    NUGA SKIN CLINIC — About
-
-   채울 값:
-   - TEAM_PHOTO : 단체 사진. client/public/ 에 파일 넣고 "/team.jpg" 처럼 지정.
-   - STAFF[].photo : 각 직원 사진. "/staff-amy.jpg" 등.
-   - STAFF[].role / bio : 직책·소개. ⚠️ 사실만 채우세요. 지어내지 마세요.
-     (직책·경력·전문분야를 주시면 소개 문구는 다듬어 드립니다.)
-   ========================================================================== */
+   Fill-in values:
+   - TEAM_PHOTO : group photo. Put a file in client/public/ and set e.g. "/team.jpg".
+   - STAFF[].photo : each staff photo, e.g. "/staff-amy.jpg".
+   - STAFF[].role / bio : title & short bio. Use facts only.
+*/
 
 const BOOKING_URL = "https://www.vagaro.com/nugaskincareclinic";
 
 const TEAM_PHOTO = "/nuga_about.jpg";
 
-// 실제 직원 정보 + 사진. 소개(bio)는 직책 기반의 사실 문구 — 경력·전문분야를 주시면 보강합니다.
+// Real staff info + photos. Bios are factual, role-based.
 const STAFF = [
   {
     name: "Amy Byun",
-    role: "Owner · 대표",
-    bio: "누가 스킨 클리닉을 이끄는 대표. 팀 전체의 케어 기준을 세우고 진료·운영을 총괄합니다.",
+    role: "Owner",
+    bio: "Leads Nuga Skin Clinic, setting the standard of care for the whole team and overseeing treatment and operations.",
     photo: "/about1.jpg",
   },
   {
     name: "Soo Namgoong",
-    role: "MD · 전문의",
-    bio: "전문의(Medical Doctor)로서 의료적 판단과 진료를 담당합니다.",
+    role: "Medical Doctor",
+    bio: "Oversees medical assessment and care as the clinic's physician.",
     photo: "/about4.jpg",
   },
   {
     name: "Sumi Kwak",
-    role: "NP · 전문간호사",
-    bio: "전문간호사(Nurse Practitioner)로 시술 상담과 맞춤 케어 플랜을 담당합니다.",
+    role: "Nurse Practitioner",
+    bio: "Leads treatment consultations and personalized care plans as a Nurse Practitioner.",
     photo: "/about2.jpg",
   },
   {
     name: "Jane Jung",
-    role: "RN · 간호사",
-    bio: "정식 간호사(Registered Nurse)로 안전하고 세심한 시술 진행을 맡습니다.",
+    role: "Registered Nurse",
+    bio: "Ensures safe, attentive treatment as a Registered Nurse.",
     photo: "/about3.jpg",
   },
 ];
@@ -69,7 +67,7 @@ export default function About() {
     return () => io.disconnect();
   }, []);
 
-  const initial = (name: string) => (name.match(/[A-Za-z가-힣]/)?.[0] ?? "·").toUpperCase();
+  const initial = (name: string) => (name.match(/[A-Za-z]/)?.[0] ?? "N").toUpperCase();
 
   return (
     <>
@@ -80,12 +78,12 @@ export default function About() {
             <img className="brand__logo" src="/logo.png" alt="Nuga Skin Clinic" />
           </a>
           <nav className="nav__links">
-            <a className="nav__link" href="/#services">Services · 시술</a>
-            <a className="nav__link" href="/#reviews">Results · 후기</a>
-            <a className="nav__link" href="/about">About · 소개</a>
-            <a className="nav__link" href="/#visit">Visit · 오시는 길</a>
+            <a className="nav__link" href="/#services">Services</a>
+            <a className="nav__link" href="/#reviews">Results</a>
+            <a className="nav__link" href="/about">About</a>
+            <a className="nav__link" href="/#visit">Visit</a>
             <a className="btn btn--solid nav__cta" href={BOOKING_URL} target="_blank" rel="noreferrer">
-              Book · 예약
+              Book
             </a>
           </nav>
           <button className="nav__burger" aria-label="Menu">☰</button>
@@ -96,63 +94,51 @@ export default function About() {
       <section className="section subpage">
         <div className="wrap">
           <div className="about__intro reveal">
-            <p className="eyebrow section__eyebrow">About · 소개</p>
+            <p className="eyebrow section__eyebrow">About</p>
             <h1 className="section__title">
               The hands behind your skin.
-              <span className="kr">당신의 피부를 맡은 손길</span>
             </h1>
             <p className="about__lead">
               At Nuga Skin Clinic, Seoul-grade technique meets one-on-one care. Our specialists work
               with medical-grade devices and a treatment plan built around your skin — not a menu.
             </p>
-            <p className="about__lead kr">
-              누가 스킨 클리닉은 서울의 피부 관리 노하우와 일대일 맞춤 케어를 함께 담았습니다. 정품 의료 장비와,
-              정형화된 메뉴가 아닌 개개인의 피부에 맞춘 관리로 애틀랜타 가족들의 신뢰를 이어오고 있습니다.
-            </p>
-            {/* 위 소개 문구는 검토·교체 가능합니다. 창업 연도·설립 스토리 등 사실을 주시면 반영합니다. */}
           </div>
         </div>
       </section>
 
-      {/* ================= TEAM (단체 사진 + 설명) ================= */}
+      {/* ================= TEAM ================= */}
       <section className="section section--dark">
         <div className="wrap">
           <div className="team">
             <div className="team__photo reveal">
               {TEAM_PHOTO ? (
-                <img className="team__img" src={TEAM_PHOTO} alt="Nuga Skin Clinic 팀" />
+                <img className="team__img" src={TEAM_PHOTO} alt="Nuga Skin Clinic team" />
               ) : (
                 <div className="team__ph">
                   <span className="team__ph-mark">Team Photo</span>
-                  <span className="team__ph-cap">단체 사진 · client/public/team.jpg</span>
+                  <span className="team__ph-cap">Team photo · client/public/team.jpg</span>
                 </div>
               )}
             </div>
             <div className="team__text reveal">
-              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>Our team · 팀 소개</p>
+              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>Our team</p>
               <h2 className="section__title">One team, one standard of care.</h2>
               <p className="about__lead" style={{ color: "rgba(247,243,238,0.82)" }}>
                 Every member of Nuga is trained to the same standard: listen first, treat with
                 precision, and follow through. That consistency is why families return, year after year.
               </p>
-              <p className="about__lead kr" style={{ color: "rgba(247,243,238,0.82)" }}>
-                누가의 모든 구성원은 같은 기준으로 일합니다. 먼저 듣고, 정밀하게 시술하고, 끝까지 책임집니다.
-                온 가족이 해마다 다시 찾는 이유가 바로 이 일관성입니다.
-              </p>
-              {/* 팀 설명 문구도 대표님 제공 사실(구성·인원·이력)에 맞춰 교체 가능 */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= STAFF (4명) ================= */}
+      {/* ================= STAFF ================= */}
       <section className="section">
         <div className="wrap">
           <div className="section__head reveal">
             <p className="eyebrow section__eyebrow">Meet the specialists</p>
             <h2 className="section__title">
               Our specialists.
-              <span className="kr">전문가 소개</span>
             </h2>
           </div>
 
@@ -168,14 +154,14 @@ export default function About() {
                 </div>
                 <h3 className="staff__name">{s.name}</h3>
                 <p className="staff__role">{s.role}</p>
-                <p className="staff__bio kr">{s.bio}</p>
+                <p className="staff__bio">{s.bio}</p>
               </article>
             ))}
           </div>
 
           <div className="about__cta reveal">
             <a className="btn btn--solid" href={BOOKING_URL} target="_blank" rel="noreferrer">
-              상담 예약 · Book a consultation
+              Book a consultation
             </a>
           </div>
         </div>
@@ -187,7 +173,7 @@ export default function About() {
           <div className="foot__grid">
             <div className="foot__brand">
               <img className="brand__logo" src="/logo.png" alt="Nuga Skin Clinic" style={{ height: 54 }} />
-              <p className="foot__tag kr">서울의 피부 기술을, 애틀랜타에서. 정품 장비, 전문가의 손, 자연스러운 결과.</p>
+              <p className="foot__tag">Seoul-grade skincare in Duluth — trusted devices, expert hands, natural results.</p>
             </div>
             <div className="foot__nap">
               2005 Boggs Rd #101, Duluth, GA 30096<br />

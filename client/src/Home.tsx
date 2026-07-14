@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { TREATMENTS } from "./treatments";
 
 /* ==========================================================================
-   NUGA SKIN CLINIC — Home (v3 · Haoderm 레퍼런스 포맷)
-   흰 네비 + 풀블리드 히어로 + 딥그린 인용 섹션 + 우측 소셜 레일
+   NUGA SKIN CLINIC — Home (v3 · Haoderm reference format)
+   White nav + full-bleed hero + deep-green intro + right social rail
    ========================================================================== */
 const CONFIG = {
   phone: "(770) 687-2545",
@@ -13,15 +13,15 @@ const CONFIG = {
   INSTAGRAM: "https://www.instagram.com/nugaskinclinic/",
   FACEBOOK: "https://www.facebook.com/nugabeautyskincare/",
   GOOGLE_REVIEWS: "https://www.google.com/maps/search/?api=1&query=Nuga%20Skin%20Clinic%20Duluth%20GA",
-  // 히어로 슬라이드쇼: client/public/ 에 hero1~hero5.jpg. 4초 간격 크로스페이드.
-  HERO_IMAGES: ["/hero1.JPG", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
+  // Hero slideshow: hero1~hero5.jpg in client/public/. 4s crossfade.
+  HERO_IMAGES: ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
   HERO_INTERVAL: 4000,
 };
 
 const REVIEWS = [
-  { quote: "5년째 다니고 있어요. Amy Byun 원장님이 늘 꼼꼼하게 봐주시고 꼭 필요한 케어만 권해주세요.", by: "Hyewon K. · Microneedling · Google" },
+  { quote: "I've been coming for five years. Amy always takes careful time with me and only recommends what I actually need.", by: "Hyewon K. · Microneedling · Google" },
   { quote: "Drove 4 hours from Florida for an authentic Korean facial. Loved it — we'll be back.", by: "Gabrielle H. · Google" },
-  { quote: "써마지로 시작한 뒤 계속 만족하고 있어요. 온 가족이 함께 다니는, 믿고 맡기는 곳입니다.", by: "Young Sook K. · Thermage · Google" },
+  { quote: "We started with Thermage and have been happy ever since. Our whole family comes here — a place we trust.", by: "Young Sook K. · Thermage · Google" },
 ];
 
 function Rail() {
@@ -47,7 +47,7 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [slide, setSlide] = useState(0);
 
-  // 히어로 슬라이드쇼 (4초 간격 자동 전환)
+  // Hero slideshow (auto-advance every 4s)
   useEffect(() => {
     const t = setInterval(
       () => setSlide((s) => (s + 1) % CONFIG.HERO_IMAGES.length),
@@ -75,24 +75,24 @@ export default function Home() {
 
   return (
     <>
-      {/* ===== NAV (흰색) ===== */}
+      {/* ===== NAV ===== */}
       <header className={`nav${scrolled ? " is-scrolled" : ""}`}>
         <div className="wrap nav__inner">
           <a className="brand" href="#top">
             <img className="brand__logo" src="/logo.png" alt="Nuga Skin Clinic" />
           </a>
           <nav className="nav__links">
-            <a className="nav__link" href="#services">Services · 시술</a>
-            <a className="nav__link" href="#reviews">Results · 후기</a>
-            <a className="nav__link" href="/about">About · 소개</a>
-            <a className="nav__link" href="#visit">Visit · 오시는 길</a>
-            <a className="btn btn--solid nav__cta" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book · 예약</a>
+            <a className="nav__link" href="#services">Services</a>
+            <a className="nav__link" href="#reviews">Results</a>
+            <a className="nav__link" href="/about">About</a>
+            <a className="nav__link" href="#visit">Visit</a>
+            <a className="btn btn--solid nav__cta" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book</a>
           </nav>
           <button className="nav__burger" aria-label="Menu">☰</button>
         </div>
       </header>
 
-      {/* ===== HERO (5장 크로스페이드 슬라이드쇼, 4초) ===== */}
+      {/* ===== HERO (5-image crossfade slideshow, 4s) ===== */}
       <section id="top" className="herofull">
         {CONFIG.HERO_IMAGES.map((src, i) => (
           <img
@@ -115,20 +115,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== GREEN INTRO (인용 섹션) ===== */}
+      {/* ===== GREEN INTRO ===== */}
       <section className="intro">
         <div className="intro__inner reveal">
           <h1 className="intro__h1">&lsquo;K-beauty, without the flight&rsquo;</h1>
-          <p className="intro__sub kr">서울의 피부 기술을, 애틀랜타에서</p>
+          <p className="intro__sub">Seoul-grade skincare, right here in Duluth.</p>
           <p className="intro__lead">
             Nuga Skin Clinic delivers personalized skincare built on years of clinical experience and
             medical-grade technology. Every treatment is tailored to your skin — never a fixed menu —
             so you can restore and maintain healthy, radiant skin.
-            <span className="kr">정품 장비와 숙련된 전문가의 일대일 케어로, 자연스럽고 정제된 결과를 만듭니다.</span>
           </p>
           <div className="intro__cta">
-            <a className="btn btn--gold" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">상담 예약 · Book a consultation</a>
-            <a className="btn btn--line" href="#services">시술 보기 · Explore treatments</a>
+            <a className="btn btn--gold" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book a consultation</a>
+            <a className="btn btn--line" href="#services">Explore treatments</a>
           </div>
           <div className="intro__trust">
             <div className="intro__stat"><b>4.8★</b><span>Google Rating</span></div>
@@ -140,14 +139,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== TREATMENTS (Haoderm 'Solution' 스타일 masonry) ===== */}
+      {/* ===== TREATMENTS (Haoderm 'Solution' style masonry) ===== */}
       <section className="section" id="services">
         <div className="wrap">
           <div className="solhead reveal">
             <h2 className="solhead__title">&lsquo;Nuga Solutions&rsquo;</h2>
             <p className="solhead__sub">
               Personalized, medical-grade treatments for beauty that starts with healthy skin.
-              <span className="kr">건강한 피부에서 시작하는 아름다움 — 개개인에 맞춘 의료급 시술.</span>
             </p>
           </div>
 
@@ -160,7 +158,6 @@ export default function Home() {
                     <span className="solcard__scrim" aria-hidden />
                     <div className="solcard__body">
                       <h3 className="solcard__name">&lsquo;{t.name}&rsquo;</h3>
-                      <span className="solcard__kr kr">{t.kr}</span>
                       <span className="solcard__btn">View More <svg viewBox="0 0 24 24" aria-hidden><path d="M5 12h12M13 6l6 6-6 6"/></svg></span>
                     </div>
                   </a>
@@ -176,19 +173,19 @@ export default function Home() {
         <div className="wrap">
           <div className="section__head reveal">
             <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>Why Atlanta trusts Nuga</p>
-            <h2 className="section__title">Results our clients come back for.<span className="kr">다시 찾는 이유, 결과입니다</span></h2>
+            <h2 className="section__title">Results our clients come back for.</h2>
           </div>
           <div className="rev__grid reveal">
             {REVIEWS.map((r, i) => (
               <blockquote className="rev__card" key={i}>
                 <div className="rev__stars" aria-hidden>★★★★★</div>
-                <p className={`rev__quote${/[가-힣]/.test(r.quote) ? " kr" : ""}`}>{r.quote}</p>
+                <p className="rev__quote">{r.quote}</p>
                 <cite className="rev__by">{r.by}</cite>
               </blockquote>
             ))}
           </div>
           <div className="rev__foot reveal">
-            <p className="kr" style={{ color: "rgba(247,243,238,0.7)", fontSize: 15 }}>실제 구글 리뷰에서 발췌 · 4.8★ · 151개</p>
+            <p style={{ color: "rgba(247,243,238,0.7)", fontSize: 15 }}>From real Google reviews · 4.8★ · 151 reviews</p>
             <a href={CONFIG.GOOGLE_REVIEWS} target="_blank" rel="noreferrer">Read all reviews on Google →</a>
           </div>
         </div>
@@ -199,17 +196,17 @@ export default function Home() {
         <div className="wrap">
           <div className="section__head reveal">
             <p className="eyebrow section__eyebrow">Visit us</p>
-            <h2 className="section__title">Duluth, Georgia.<span className="kr">오시는 길 · 예약</span></h2>
+            <h2 className="section__title">Duluth, Georgia.</h2>
           </div>
           <div className="visit__grid">
             <div className="visit__nap reveal">
-              <div className="visit__row"><span className="visit__label">Address · 주소</span><span className="visit__val">{CONFIG.address}</span></div>
-              <div className="visit__row"><span className="visit__label">Phone · 전화</span><span className="visit__val"><a href={CONFIG.phoneHref}>{CONFIG.phone}</a></span></div>
+              <div className="visit__row"><span className="visit__label">Address</span><span className="visit__val">{CONFIG.address}</span></div>
+              <div className="visit__row"><span className="visit__label">Phone</span><span className="visit__val"><a href={CONFIG.phoneHref}>{CONFIG.phone}</a></span></div>
               <div className="visit__row">
-                <span className="visit__label">Hours · 영업시간</span>
+                <span className="visit__label">Hours</span>
                 <dl className="visit__hours"><dt>Mon–Sat</dt><dd>9:30 AM – 6:30 PM</dd><dt>Sun</dt><dd>Closed</dd></dl>
               </div>
-              <div className="visit__row"><a className="btn btn--solid" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">상담 예약 · Book now</a></div>
+              <div className="visit__row"><a className="btn btn--solid" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book now</a></div>
               <div className="visit__social">
                 <a href={CONFIG.INSTAGRAM} target="_blank" rel="noreferrer">Instagram</a>
                 <a href={CONFIG.FACEBOOK} target="_blank" rel="noreferrer">Facebook</a>
@@ -227,7 +224,7 @@ export default function Home() {
           <div className="foot__grid">
             <div className="foot__brand">
               <img className="brand__logo" src="/logo.png" alt="Nuga Skin Clinic" style={{ height: 54 }} />
-              <p className="foot__tag kr">서울의 피부 기술을, 애틀랜타에서. 정품 장비, 전문가의 손, 자연스러운 결과.</p>
+              <p className="foot__tag">Seoul-grade skincare in Duluth — trusted devices, expert hands, natural results.</p>
             </div>
             <div className="foot__nap">
               {CONFIG.address}<br /><a href={CONFIG.phoneHref}>{CONFIG.phone}</a><br />Mon–Sat 9:30 AM–6:30 PM · Sun Closed

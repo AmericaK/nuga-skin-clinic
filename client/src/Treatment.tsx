@@ -22,7 +22,7 @@ export default function Treatment({ slug }: { slug: string }) {
     return () => io.disconnect();
   }, []);
 
-  // 잘못된 slug → 홈으로 안내
+  // Invalid slug → back home
   if (!t) {
     return (
       <div style={{ minHeight: "60vh", display: "grid", placeItems: "center", textAlign: "center", padding: 40 }}>
@@ -43,11 +43,11 @@ export default function Treatment({ slug }: { slug: string }) {
         <div className="wrap nav__inner">
           <a className="brand" href="/"><img className="brand__logo" src="/logo.png" alt="Nuga Skin Clinic" /></a>
           <nav className="nav__links">
-            <a className="nav__link" href="/#services">Services · 시술</a>
-            <a className="nav__link" href="/#reviews">Results · 후기</a>
-            <a className="nav__link" href="/about">About · 소개</a>
-            <a className="nav__link" href="/#visit">Visit · 오시는 길</a>
-            <a className="btn btn--solid nav__cta" href={BOOKING_URL} target="_blank" rel="noreferrer">Book · 예약</a>
+            <a className="nav__link" href="/#services">Services</a>
+            <a className="nav__link" href="/#reviews">Results</a>
+            <a className="nav__link" href="/about">About</a>
+            <a className="nav__link" href="/#visit">Visit</a>
+            <a className="btn btn--solid nav__cta" href={BOOKING_URL} target="_blank" rel="noreferrer">Book</a>
           </nav>
           <button className="nav__burger" aria-label="Menu">☰</button>
         </div>
@@ -57,13 +57,12 @@ export default function Treatment({ slug }: { slug: string }) {
       <section className="tx-hero subpage">
         <div className="wrap tx-hero__grid">
           <div className="reveal">
-            <p className="eyebrow">Treatment · 시술</p>
+            <p className="eyebrow">Treatment</p>
             <h1 className="tx-hero__title">{t.name}</h1>
-            <p className="tx-hero__kr kr">{t.kr}</p>
             <p className="tx-hero__summary">{t.summary}</p>
             <div className="tx-hero__cta">
-              <a className="btn btn--solid" href={BOOKING_URL} target="_blank" rel="noreferrer">상담 예약 · Book a consultation</a>
-              <a className="btn btn--ghost" href="/#services">← 시술 전체 · All treatments</a>
+              <a className="btn btn--solid" href={BOOKING_URL} target="_blank" rel="noreferrer">Book a consultation</a>
+              <a className="btn btn--ghost" href="/#services">← All treatments</a>
             </div>
           </div>
           <div className="tx-hero__img reveal"><img src={t.img} alt={t.name} /></div>
@@ -75,16 +74,15 @@ export default function Treatment({ slug }: { slug: string }) {
         <div className="wrap tx-body">
           <div className="tx-about reveal">
             <p className="eyebrow section__eyebrow">About</p>
-            <p className="tx-about__p">{t.aboutEN}</p>
-            <p className="tx-about__p kr">{t.aboutKR}</p>
-            <p className="tx-note">* 효과는 개인에 따라 다를 수 있으며, 정확한 계획은 상담을 통해 결정됩니다. Results vary by individual; a personalized plan is set at consultation.</p>
+            <p className="tx-about__p">{t.about}</p>
+            <p className="tx-note">* Results vary by individual; a personalized plan is set at your consultation.</p>
           </div>
           <aside className="tx-good reveal">
-            <p className="eyebrow section__eyebrow">Good for · 이런 분께</p>
+            <p className="eyebrow section__eyebrow">Good for</p>
             <ul className="tx-good__list">
               {t.goodFor.map((g) => (<li key={g}>{g}</li>))}
             </ul>
-            <a className="btn btn--gold" href={BOOKING_URL} target="_blank" rel="noreferrer" style={{ marginTop: 24 }}>예약하기 · Book now</a>
+            <a className="btn btn--gold" href={BOOKING_URL} target="_blank" rel="noreferrer" style={{ marginTop: 24 }}>Book now</a>
           </aside>
         </div>
       </section>
@@ -94,7 +92,7 @@ export default function Treatment({ slug }: { slug: string }) {
         <div className="wrap">
           <div className="section__head reveal">
             <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>More</p>
-            <h2 className="section__title">Explore other treatments.<span className="kr">다른 시술 보기</span></h2>
+            <h2 className="section__title">Explore other treatments.</h2>
           </div>
           <div className="tx-others reveal">
             {others.map((o) => (
@@ -114,7 +112,7 @@ export default function Treatment({ slug }: { slug: string }) {
           <div className="foot__grid">
             <div className="foot__brand">
               <img className="brand__logo" src="/logo.png" alt="Nuga Skin Clinic" style={{ height: 54 }} />
-              <p className="foot__tag kr">서울의 피부 기술을, 애틀랜타에서. 정품 장비, 전문가의 손, 자연스러운 결과.</p>
+              <p className="foot__tag">Seoul-grade skincare in Duluth — trusted devices, expert hands, natural results.</p>
             </div>
             <div className="foot__nap">
               2005 Boggs Rd #101, Duluth, GA 30096<br /><a href="tel:+17706872545">(770) 687-2545</a><br />Mon–Sat 9:30 AM–6:30 PM · Sun Closed
