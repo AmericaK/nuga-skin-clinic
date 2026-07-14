@@ -12,8 +12,9 @@ const CONFIG = {
   INSTAGRAM: "https://www.instagram.com/nugaskinclinic/",
   FACEBOOK: "https://www.facebook.com/nugabeautyskincare/",
   GOOGLE_REVIEWS: "https://www.google.com/maps/search/?api=1&query=Nuga%20Skin%20Clinic%20Duluth%20GA",
-  // 히어로: 이상적으로는 넓은 시술실 사진. 지금은 클리닉 내부(단체) 사진을 임시 사용.
-  HERO_IMAGE: "/nuga_about.jpg",
+  // 히어로 슬라이드쇼: client/public/ 에 hero1~hero5.jpg. 4초 간격 크로스페이드.
+  HERO_IMAGES: ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
+  HERO_INTERVAL: 4000,
 };
 
 const SERVICES = [
@@ -50,6 +51,16 @@ function Rail() {
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [slide, setSlide] = useState(0);
+
+  // 히어로 슬라이드쇼 (4초 간격 자동 전환)
+  useEffect(() => {
+    const t = setInterval(
+      () => setSlide((s) => (s + 1) % CONFIG.HERO_IMAGES.length),
+      CONFIG.HERO_INTERVAL
+    );
+    return () => clearInterval(t);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -87,13 +98,27 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ===== HERO (풀블리드 이미지, 텍스트 없음) ===== */}
+      {/* ===== HERO (5장 크로스페이드 슬라이드쇼, 4초) ===== */}
       <section id="top" className="herofull">
-        {CONFIG.HERO_IMAGE ? (
-          <img src={CONFIG.HERO_IMAGE} alt="Nuga Skin Clinic" />
-        ) : (
-          <span className="herofull__cap">Photo · 시술실 이미지 교체 위치</span>
-        )}
+        {CONFIG.HERO_IMAGES.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            aria-hidden={i !== slide}
+            className={`herofull__img${i === slide ? " is-active" : ""}`}
+          />
+        ))}
+        <div className="herofull__dots">
+          {CONFIG.HERO_IMAGES.map((_, i) => (
+            <button
+              key={i}
+              className={i === slide ? "is-on" : ""}
+              onClick={() => setSlide(i)}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* ===== GREEN INTRO (인용 섹션) ===== */}
@@ -116,7 +141,7 @@ export default function Home() {
             <span className="intro__div" aria-hidden />
             <div className="intro__stat"><b>150+</b><span>Reviews</span></div>
             <span className="intro__div" aria-hidden />
-            <div className="intro__stat"><b>5+ yrs</b><span>In Duluth</span></div>
+            <div className="intro__stat"><b>13 yrs</b><span>In Duluth</span></div>
           </div>
         </div>
       </section>
