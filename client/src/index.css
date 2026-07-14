@@ -225,7 +225,8 @@ body {
 .visit__hours dt { font-weight: 600; color: var(--ink); }
 .visit__map { width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--stone); border-radius: 3px; filter: grayscale(0.25) contrast(1.02); }
 .visit__social { display: flex; gap: 14px; margin-top: 8px; }
-.visit__social a { font-size: 13px; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--stone); padding: 8px 16px; border-radius: 999px; }
+.visit__social a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--stone); padding: 8px 16px; border-radius: 999px; }
+.visit__social svg { width: 15px; height: 15px; fill: currentColor; }
 .visit__social a:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
 
 /* ---- Footer ------------------------------------------------------------- */
@@ -339,7 +340,7 @@ body {
 .intro__inner { max-width: 800px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) var(--gutter); }
 .intro__h1 {
   font-family: var(--f-display); font-weight: 500; letter-spacing: -0.01em;
-  font-size: clamp(38px, 6.4vw, 74px); line-height: 1.05; color: #fff;
+  font-size: clamp(22px, 4.9vw, 56px); line-height: 1.08; color: #fff; white-space: nowrap;
 }
 .intro__sub { font-family: var(--f-display-kr); font-weight: 500; font-size: clamp(18px, 2.6vw, 26px); color: var(--gold); margin-top: 18px; }
 .intro__lead { margin-top: 28px; color: rgba(255,255,255,0.82); font-size: clamp(15px, 1.8vw, 17px); line-height: 1.95; }

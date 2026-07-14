@@ -130,7 +130,7 @@ export default function Home() {
             <a className="btn btn--line" href="#services">Explore treatments</a>
           </div>
           <div className="intro__trust">
-            <div className="intro__stat"><b>4.8★</b><span>Google Rating</span></div>
+            <div className="intro__stat"><b>4.9★</b><span>Google Rating</span></div>
             <span className="intro__div" aria-hidden />
             <div className="intro__stat"><b>150+</b><span>Reviews</span></div>
             <span className="intro__div" aria-hidden />
@@ -185,7 +185,7 @@ export default function Home() {
             ))}
           </div>
           <div className="rev__foot reveal">
-            <p style={{ color: "rgba(247,243,238,0.7)", fontSize: 15 }}>From real Google reviews · 4.8★ · 151 reviews</p>
+            <p style={{ color: "rgba(247,243,238,0.7)", fontSize: 15 }}>From real Google reviews · 4.9★ · 151 reviews</p>
             <a href={CONFIG.GOOGLE_REVIEWS} target="_blank" rel="noreferrer">Read all reviews on Google →</a>
           </div>
         </div>
@@ -208,8 +208,14 @@ export default function Home() {
               </div>
               <div className="visit__row"><a className="btn btn--solid" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book now</a></div>
               <div className="visit__social">
-                <a href={CONFIG.INSTAGRAM} target="_blank" rel="noreferrer">Instagram</a>
-                <a href={CONFIG.FACEBOOK} target="_blank" rel="noreferrer">Facebook</a>
+                <a href={CONFIG.INSTAGRAM} target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden><path d="M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.5 1.6 1 .5.5.8 1 1 1.6.3.6.4 1.3.5 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3-.2.6-.5 1.1-1 1.6-.5.5-1 .8-1.6 1-.6.3-1.3.4-2.3.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5-.6-.2-1.1-.5-1.6-1-.5-.5-.8-1-1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.5-1.1 1-1.6.5-.5 1-.8 1.6-1 .6-.3 1.3-.4 2.3-.5C9 2 9.3 2 12 2zm0 3.4a6.6 6.6 0 100 13.2 6.6 6.6 0 000-13.2zm0 1.8a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm5.3-3.1a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
+                  <span>Instagram</span>
+                </a>
+                <a href={CONFIG.FACEBOOK} target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24" aria-hidden><path d="M14 9h2.5l.3-3H14V4.5c0-.8.2-1.3 1.4-1.3H17V.6C16.7.5 15.7.5 14.6.5 12.3.5 11 1.8 11 4.3V6H8.5v3H11v9h3V9z"/></svg>
+                  <span>Facebook</span>
+                </a>
               </div>
             </div>
             <iframe className="visit__map reveal" title="Nuga Skin Clinic location" loading="lazy"
