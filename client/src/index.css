@@ -278,7 +278,7 @@ body {
 /* Team: 단체 사진 + 설명 (좌 사진 / 우 텍스트) */
 .team { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .team__photo { border-radius: 3px; overflow: hidden; border: 1px solid rgba(247,243,238,0.16); }
-.team__img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+.team__img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16 / 9; background: var(--forest-2); }
 .team__ph {
   aspect-ratio: 4 / 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
   background:

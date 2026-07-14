@@ -3,14 +3,12 @@ import { useEffect, useState } from "react";
 /*
    NUGA SKIN CLINIC — About
    Fill-in values:
-   - TEAM_PHOTO : group photo. Put a file in client/public/ and set e.g. "/team.jpg".
+   - Team video : client/public/team.mp4 (autoplay, muted, loop). Poster: team-poster.jpg
    - STAFF[].photo : each staff photo, e.g. "/staff-amy.jpg".
    - STAFF[].role / bio : title & short bio. Use facts only.
 */
 
 const BOOKING_URL = "https://www.vagaro.com/nugaskincareclinic";
-
-const TEAM_PHOTO = "/nuga_about.jpg";
 
 // Real staff info + photos. Bios are factual, role-based.
 const STAFF = [
@@ -112,14 +110,16 @@ export default function About() {
         <div className="wrap">
           <div className="team">
             <div className="team__photo reveal">
-              {TEAM_PHOTO ? (
-                <img className="team__img" src={TEAM_PHOTO} alt="Nuga Skin Clinic team" />
-              ) : (
-                <div className="team__ph">
-                  <span className="team__ph-mark">Team Photo</span>
-                  <span className="team__ph-cap">Team photo · client/public/team.jpg</span>
-                </div>
-              )}
+              <video
+                className="team__img"
+                src="/team.mp4"
+                poster="/team-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
             </div>
             <div className="team__text reveal">
               <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>Our team</p>
