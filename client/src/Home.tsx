@@ -13,7 +13,7 @@ const CONFIG = {
   FACEBOOK: "https://www.facebook.com/nugabeautyskincare/",
   GOOGLE_REVIEWS: "https://www.google.com/maps/search/?api=1&query=Nuga%20Skin%20Clinic%20Duluth%20GA",
   // 히어로 슬라이드쇼: client/public/ 에 hero1~hero5.jpg. 4초 간격 크로스페이드.
-  HERO_IMAGES: ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
+  HERO_IMAGES: ["/hero1.JPG", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
   HERO_INTERVAL: 4000,
 };
 
