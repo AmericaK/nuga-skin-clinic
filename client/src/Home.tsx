@@ -14,7 +14,7 @@ const CONFIG = {
   FACEBOOK: "https://www.facebook.com/nugabeautyskincare/",
   GOOGLE_REVIEWS: "https://www.google.com/maps/search/?api=1&query=Nuga%20Skin%20Clinic%20Duluth%20GA",
   // Hero slideshow: hero1~hero5.jpg in client/public/. 4s crossfade.
-  HERO_IMAGES: ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
+  HERO_IMAGES: ["/hero1.JPG", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
   HERO_INTERVAL: 4000,
 };
 
