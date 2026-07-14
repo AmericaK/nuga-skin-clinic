@@ -15,6 +15,9 @@ export type Treatment = {
   whyImg?: string;       // image for the "Why X?" section (shown uncropped)
   benefits?: string[];   // "Why X?" bullet list
   results?: ResultGroup[]; // Clinical Results (before/after groups)
+  resultsGallery?: string[]; // flat before/after gallery (portrait images)
+  treatmentAreas?: string[]; // "Treatment areas" chips
+  faq?: { q: string; a: string }[]; // FAQ (collapsible)
 };
 
 export const TREATMENTS: Treatment[] = [
@@ -76,6 +79,31 @@ export const TREATMENTS: Treatment[] = [
     about:
       "Potenza combines microneedling with radiofrequency to remodel skin from within. It improves texture, pores, and scarring while tightening — and can be customized for nearly all skin types and areas.",
     goodFor: ["Enlarged pores & texture", "Acne scars", "Skin tightening"],
+    whatIs:
+      "Potenza is a radiofrequency microneedling system with several treatment modes, all built to address the common signs of aging — skin laxity most of all. Through controlled soft-tissue coagulation it tightens and firms the skin while prompting fresh collagen and elastin in the treated areas, leaving skin looking revitalized.",
+    deviceImg: "/potenza-device.jpg",
+    benefits: [
+      "Pairs ultrafine microneedles with RF energy to wake up your skin's own collagen and elastin",
+      "Tightens and firms skin that has lost its bounce",
+      "Softens common signs of aging and helps reduce blemishes",
+      "Works on all skin types, across the face and body, any time of year",
+      "Fully customizable to your individual concerns",
+      "Most sessions are done in 45 minutes or less",
+    ],
+    treatmentAreas: [
+      "Full Face", "Forehead", "Crow's feet", "Upper Cheek", "Lower Eyes",
+      "Lower Cheek", "Nose", "Upper & Lower Lip", "Chin", "Jawline",
+      "Neck", "Décolletage", "Elbows", "Abdomen",
+    ],
+    resultsGallery: [
+      "/potenza-r1.jpg", "/potenza-r2.jpg", "/potenza-r3.jpg",
+      "/potenza-r4.jpg", "/potenza-r5.jpg", "/potenza-r6.jpg",
+    ],
+    faq: [
+      { q: "Is this treatment right for me?", a: "Potenza can address a wide range of concerns on both the face and body. The surest way to know if it fits your goals is a quick consultation with our team." },
+      { q: "Why add RF energy to microneedling?", a: "Radiofrequency prompts your body to produce noticeably more collagen and elastin than microneedling on its own — for a stronger revitalization result." },
+      { q: "How long does a treatment take?", a: "It depends on the area, but most Potenza sessions are finished in about 45 minutes or less." },
+    ],
   },
   {
     slug: "injectables",

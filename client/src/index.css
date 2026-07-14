@@ -512,3 +512,21 @@ body {
 }
 
 .tx-why-img img { width: 100%; height: auto; display: block; border-radius: 6px; }
+
+/* Treatment detail — device (contain), areas, gallery, FAQ */
+.tx-ph--square { background: #fff; }
+.tx-ph--square img { object-fit: contain; }
+
+.tx-areas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 820px; margin: 0 auto; }
+.tx-area { padding: 10px 18px; border: 1px solid var(--stone); border-radius: 999px; font-size: 14px; color: var(--ink); background: #fff; }
+
+.tx-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; max-width: 720px; margin: 0 auto; }
+.tx-ph--portrait { aspect-ratio: 210 / 239; }
+
+.tx-faq { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.tx-faq__item { background: #fff; border: 1px solid var(--stone); border-radius: 8px; padding: 0 22px; }
+.tx-faq__q { cursor: pointer; padding: 18px 0; font-family: var(--f-display); font-size: 18px; color: var(--ink); list-style: none; position: relative; padding-right: 28px; }
+.tx-faq__q::-webkit-details-marker { display: none; }
+.tx-faq__q::after { content: "+"; position: absolute; right: 0; top: 16px; color: var(--gold-deep); font-size: 22px; line-height: 1; }
+.tx-faq__item[open] .tx-faq__q::after { content: "\2212"; }
+.tx-faq__a { padding: 0 0 18px; color: var(--ink-soft); line-height: 1.7; font-size: 15.5px; }

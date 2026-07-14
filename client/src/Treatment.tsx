@@ -110,30 +110,73 @@ export default function Treatment({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* TREATMENT AREAS */}
+      {t.treatmentAreas && t.treatmentAreas.length > 0 && (
+        <section className="section section--soft">
+          <div className="wrap">
+            <div className="section__head section__head--center reveal">
+              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>Treatment areas</p>
+              <h2 className="section__title">Where {t.name} can help.</h2>
+            </div>
+            <div className="tx-areas reveal">
+              {t.treatmentAreas.map((a) => (<span className="tx-area" key={a}>{a}</span>))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CLINICAL RESULTS */}
-      {t.results && t.results.length > 0 && (
+      {(t.resultsGallery?.length || t.results?.length) ? (
         <section className="section">
           <div className="wrap">
             <div className="section__head section__head--center reveal">
               <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>Clinical Results</p>
               <h2 className="section__title">Before &amp; after.</h2>
             </div>
-            <div className="tx-results reveal">
-              {t.results.map((grp, gi) => (
-                <div className="tx-result-group" key={gi}>
-                  {grp.title && <h3 className="tx-result-title">{grp.title}</h3>}
-                  <div className="tx-result-imgs">
-                    {grp.imgs.map((im, ii) => (
-                      <Media key={ii} src={im} label="Before / After" className="tx-ph--result" />
-                    ))}
+            {t.resultsGallery?.length ? (
+              <div className="tx-gallery reveal">
+                {t.resultsGallery.map((im, i) => (
+                  <Media key={i} src={im} label="Result" className="tx-ph--portrait" />
+                ))}
+              </div>
+            ) : (
+              <div className="tx-results reveal">
+                {t.results!.map((grp, gi) => (
+                  <div className="tx-result-group" key={gi}>
+                    {grp.title && <h3 className="tx-result-title">{grp.title}</h3>}
+                    <div className="tx-result-imgs">
+                      {grp.imgs.map((im, ii) => (
+                        <Media key={ii} src={im} label="Before / After" className="tx-ph--result" />
+                      ))}
+                    </div>
+                    {grp.caption && <p className="tx-result-cap">{grp.caption}</p>}
                   </div>
-                  {grp.caption && <p className="tx-result-cap">{grp.caption}</p>}
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
             <p className="tx-note" style={{ textAlign: "center", marginTop: 22 }}>
               * Individual results vary. Photos are for illustration; your plan is set at consultation.
             </p>
+          </div>
+        </section>
+      ) : null}
+
+      {/* FAQ */}
+      {t.faq && t.faq.length > 0 && (
+        <section className="section section--soft">
+          <div className="wrap">
+            <div className="section__head section__head--center reveal">
+              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>FAQ</p>
+              <h2 className="section__title">Frequently asked questions.</h2>
+            </div>
+            <div className="tx-faq reveal">
+              {t.faq.map((f, i) => (
+                <details className="tx-faq__item" key={i}>
+                  <summary className="tx-faq__q">{f.q}</summary>
+                  <p className="tx-faq__a">{f.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
       )}
