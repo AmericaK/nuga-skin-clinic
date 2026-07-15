@@ -79,7 +79,7 @@ export default function Treatment({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {!t.laserGroups && (<>
+      {!t.deviceGroups && (<>
       {/* WHAT IS */}
       <section className="section">
         <div className="wrap tx-split">
@@ -184,23 +184,23 @@ export default function Treatment({ slug }: { slug: string }) {
       </>)}
 
       {/* LASER — device groups */}
-      {t.laserGroups && (
+      {t.deviceGroups && (
         <>
           <section className="section">
-            <div className="wrap tx-split">
+            <div className={`wrap${t.deviceImg ? " tx-split" : ""}`}>
               <div className="reveal">
-                <h2 className="tx-h2">Our laser & RF platforms</h2>
+                <h2 className="tx-h2">{t.groupsTitle || "Our laser & RF platforms"}</h2>
                 <p className="tx-p">{t.about}</p>
               </div>
-              <Media src={t.deviceImg} label={t.name} className="tx-ph--square reveal" />
+              {t.deviceImg && <Media src={t.deviceImg} label={t.name} className="tx-ph--square reveal" />}
             </div>
           </section>
-          {t.laserGroups.map((group, gi) => (
+          {t.deviceGroups.map((group, gi) => (
             <section className={`section ${gi % 2 === 0 ? "section--soft" : ""}`} key={group.concern}>
               <div className="wrap">
                 <div className="section__head section__head--center reveal">
                   <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>{group.concern}</p>
-                  <h2 className="section__title">{group.concern === "Lifting" ? "Lift & tighten." : group.concern === "Brightening" ? "Brighten & even out." : "Clear & resurface."}</h2>
+                  <h2 className="section__title">{group.heading || (group.concern === "Lifting" ? "Lift & tighten." : group.concern === "Brightening" ? "Brighten & even out." : "Clear & resurface.")}</h2>
                 </div>
                 <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                   {group.devices.map((d) => (

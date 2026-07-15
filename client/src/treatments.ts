@@ -18,7 +18,8 @@ export type Treatment = {
   resultsGallery?: string[]; // flat before/after gallery (portrait images)
   treatmentAreas?: string[]; // "Treatment areas" chips
   faq?: { q: string; a: string }[]; // FAQ (collapsible)
-  laserGroups?: { concern: string; intro?: string; devices: { name: string; img?: string; desc: string; howImg?: string; gallery?: string[] }[] }[];
+  groupsTitle?: string; // heading above the grouped cards (defaults to laser wording)
+  deviceGroups?: { concern: string; heading?: string; intro?: string; devices: { name: string; img?: string; desc: string; howImg?: string; gallery?: string[] }[] }[];
 };
 
 export const TREATMENTS: Treatment[] = [
@@ -71,7 +72,7 @@ export const TREATMENTS: Treatment[] = [
       "We run a range of medical-grade laser and RF platforms, each suited to a different concern. At your consultation we match the right device — or combination — to your skin and your goals.",
     goodFor: ["Pigmentation & melasma", "Acne scars", "Uneven tone & redness"],
     deviceImg: "/laser-device.jpg",
-    laserGroups: [
+    deviceGroups: [
       {
         concern: "Lifting",
         devices: [
@@ -180,10 +181,71 @@ export const TREATMENTS: Treatment[] = [
     name: "Injectables",
     img: "/t-injectables.jpg",
     col: 2,
-    summary: "Botox and fillers to smooth lines and restore volume.",
+    summary: "Botox, fillers, thread lifts, Kybella and IV therapy — refined by our medical team.",
     about:
-      "Administered by our medical team, neuromodulators (Botox) soften expression lines while dermal fillers restore volume and contour. Our goal is natural, balanced results tailored to your features.",
-    goodFor: ["Expression lines", "Volume loss", "Contour & balance"],
+      "Our injectable menu is administered by our medical team for natural, balanced results: BOTOX\u00ae to relax expression lines, dermal fillers and Voluma to restore volume and contour, Kybella to sculpt beneath the chin, PDO thread lifts to lift sagging skin, and glutathione IV therapy for brightness from within.",
+    goodFor: ["Expression lines", "Volume loss", "Jawline & contour"],
+    groupsTitle: "Our injectable & IV treatments",
+    deviceGroups: [
+      {
+        concern: "Wrinkle Relaxers",
+        heading: "Relax expression lines.",
+        devices: [
+          {
+            name: "Botox",
+            img: "/inj-botox-areas.jpg",
+            desc: "BOTOX\u00ae Cosmetic is an FDA-approved injectable that temporarily relaxes the muscles behind frown lines between the brows and crow's feet at the eyes. A highly purified protein smooths these dynamic lines at their source \u2014 the repeated squinting and frowning of everyday expression. Results typically appear within 24\u201348 hours and last up to about four months.",
+            gallery: ["/inj-botox-ba.jpg"],
+          },
+        ],
+      },
+      {
+        concern: "Dermal Fillers",
+        heading: "Restore volume & contour.",
+        devices: [
+          {
+            name: "Dermal Filler",
+            img: "/inj-filler-ba.jpg",
+            desc: "Dermal fillers are FDA-approved gels that smooth and add volume \u2014 softening nasolabial folds, plumping lips, restoring cheeks, and refining contours. Made largely from hyaluronic acid, a substance your skin naturally contains, they deliver immediate, natural-looking results tailored to each area.",
+          },
+          {
+            name: "Voluma",
+            img: "/inj-voluma-ba.jpg",
+            desc: "JUV\u00c9DERM VOLUMA\u00ae XC is a hyaluronic-acid filler designed specifically for the cheeks and cheekbones. As fat and bone volume decline with age, the mid-face flattens and skin begins to sag; Voluma restores that lift and contour from a deeper plane than most fillers \u2014 with results that can last up to two years.",
+          },
+        ],
+      },
+      {
+        concern: "Contouring & Lifting",
+        heading: "Sculpt & lift.",
+        devices: [
+          {
+            name: "Kybella",
+            img: "/inj-kybella.jpg",
+            desc: "KYBELLA\u00ae is the first FDA-approved injectable that permanently destroys fat cells beneath the chin \u2014 the \u201cdouble chin,\u201d or submental fullness. A short series of treatments gradually sculpts a clearer jawline and profile, with no surgery. Your provider maps a plan around your anatomy and goals.",
+            gallery: ["/inj-kybella-ba1.jpg", "/inj-kybella-ba2.jpg"],
+          },
+          {
+            name: "PDO Thread Lift",
+            img: "/inj-thread.jpg",
+            desc: "A PDO thread lift instantly lifts loose skin on the brows, cheeks, jowls, and neck \u2014 no surgery, minimal downtime. Fine absorbable sutures are placed under the skin to reposition sagging tissue, then dissolve over four to six months while stimulating your own collagen for a longer-lasting result.",
+            gallery: ["/inj-thread-ba.jpg"],
+          },
+        ],
+      },
+      {
+        concern: "IV Therapy",
+        heading: "Glow from within.",
+        devices: [
+          {
+            name: "Glutathione IV Push",
+            img: "/inj-iv.jpg",
+            desc: "Our glutathione IV push delivers a powerful antioxidant directly into the bloodstream, supporting the body's natural detox pathways and helping to brighten and even skin tone. It's a gentle, in-office treatment often chosen as part of a skin-radiance routine.",
+            gallery: ["/inj-iv-ba.jpg"],
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "ultherapy",
