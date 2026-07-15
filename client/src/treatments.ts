@@ -18,6 +18,7 @@ export type Treatment = {
   resultsGallery?: string[]; // flat before/after gallery (portrait images)
   treatmentAreas?: string[]; // "Treatment areas" chips
   faq?: { q: string; a: string }[]; // FAQ (collapsible)
+  laserGroups?: { concern: string; intro?: string; devices: { name: string; img?: string; desc: string }[] }[];
 };
 
 export const TREATMENTS: Treatment[] = [
@@ -65,10 +66,66 @@ export const TREATMENTS: Treatment[] = [
     name: "Laser Treatments",
     img: "/t-laser.jpg",
     col: 1,
-    summary: "Target pigmentation, acne scars, and more for clearer skin.",
+    summary: "A full suite of medical lasers for lifting, acne & scars, and brightening.",
     about:
-      "Our laser treatments are tailored to your concern — from pigmentation and redness to acne scars and uneven tone. During your consultation we select the right laser and build a plan for your skin type.",
+      "We run a range of medical-grade laser and RF platforms, each suited to a different concern. At your consultation we match the right device — or combination — to your skin and your goals.",
     goodFor: ["Pigmentation & melasma", "Acne scars", "Uneven tone & redness"],
+    laserGroups: [
+      {
+        concern: "Lifting",
+        devices: [
+          {
+            name: "InMode Lifting (Mini FX + Forma)",
+            img: "/laser-inmode.png",
+            desc: "A dual radiofrequency system. Mini FX pairs gentle suction with high-frequency energy to reduce stubborn fat around the chin and jawline, while Forma warms the deeper skin to rebuild collagen and elastin — for a slimmer, firmer, brighter face.",
+          },
+        ],
+      },
+      {
+        concern: "Acne & Scars",
+        devices: [
+          {
+            name: "Scarlet RF",
+            img: "/laser-scarlet.png",
+            desc: "Short-pulse RF microneedling that increases skin density to firm and lift while treating active acne, acne scars, enlarged pores, and pigmentation. FDA-cleared, safe for every skin type, with minimal downtime.",
+          },
+          {
+            name: "Noable Laser (1,450 nm)",
+            img: "/laser-noable.jpg",
+            desc: "Targets the sebaceous glands at the root of acne while stimulating collagen — calming breakouts, controlling oil, and softening acne scars. A built-in cooling device protects the skin's surface throughout.",
+          },
+          {
+            name: "Laser Genesis",
+            img: "/laser-genesis.jpg",
+            desc: "Gently warms the dermis to stimulate fresh collagen — smoothing texture, softening fine lines, refining pores, and easing redness and acne scars, with no downtime.",
+          },
+          {
+            name: "CO₂ Laser",
+            img: "/laser-co2.png",
+            desc: "Fractional CO₂ resurfacing vaporizes damaged tissue with precision to improve scars, texture, and lesions, while the controlled heat tightens skin and boosts collagen for a fresher look.",
+          },
+          {
+            name: "Agnes RF",
+            img: "/laser-agnes.jpg",
+            desc: "Precision RF microneedling that treats acne at its source and doubles as a non-surgical contouring tool for the jawline and under-eyes. Minimally invasive, safe for all skin tones, and quick to recover from.",
+          },
+        ],
+      },
+      {
+        concern: "Brightening",
+        devices: [
+          {
+            name: "Pico Laser",
+            desc: "An ultra-short picosecond laser that shatters pigment — dark spots, melasma, and acne scars — with very little heat, so you get brighter, more even skin with minimal discomfort or downtime.",
+          },
+          {
+            name: "IPL (Intense Pulsed Light)",
+            img: "/laser-ipl.jpg",
+            desc: "Delivers multiple wavelengths of light to treat larger areas quickly — fading sun damage, freckles, redness, rosacea, and uneven tone for clearer, brighter skin.",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "potenza",

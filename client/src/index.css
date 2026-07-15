@@ -530,3 +530,12 @@ body {
 .tx-faq__q::after { content: "+"; position: absolute; right: 0; top: 16px; color: var(--gold-deep); font-size: 22px; line-height: 1; }
 .tx-faq__item[open] .tx-faq__q::after { content: "\2212"; }
 .tx-faq__a { padding: 0 0 18px; color: var(--ink-soft); line-height: 1.7; font-size: 15.5px; }
+
+/* Laser page — device card grid */
+.laser-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+.laser-card { background: #fff; border: 1px solid var(--stone); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 18px rgba(20,58,46,0.06); }
+.laser-card__ph { height: 200px; background: #fff; border-radius: 0; border-bottom: 1px solid var(--stone); }
+.laser-card__ph img { object-fit: contain; padding: 14px; }
+.laser-card__body { padding: 20px 22px 24px; }
+.laser-card__name { font-family: var(--f-display); font-weight: 600; font-size: 20px; color: var(--ink); }
+.laser-card__desc { margin-top: 10px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }

@@ -79,6 +79,7 @@ export default function Treatment({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {!t.laserGroups && (<>
       {/* WHAT IS */}
       <section className="section">
         <div className="wrap tx-split">
@@ -179,6 +180,43 @@ export default function Treatment({ slug }: { slug: string }) {
             </div>
           </div>
         </section>
+      )}
+      </>)}
+
+      {/* LASER — device groups */}
+      {t.laserGroups && (
+        <>
+          <section className="section">
+            <div className="wrap tx-split">
+              <div className="reveal">
+                <h2 className="tx-h2">Our laser & RF platforms</h2>
+                <p className="tx-p">{t.about}</p>
+              </div>
+              <Media src={t.deviceImg} label={t.name} className="tx-ph--square reveal" />
+            </div>
+          </section>
+          {t.laserGroups.map((group, gi) => (
+            <section className={`section ${gi % 2 === 0 ? "section--soft" : ""}`} key={group.concern}>
+              <div className="wrap">
+                <div className="section__head section__head--center reveal">
+                  <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>{group.concern}</p>
+                  <h2 className="section__title">{group.concern === "Lifting" ? "Lift & tighten." : group.concern === "Brightening" ? "Brighten & even out." : "Clear & resurface."}</h2>
+                </div>
+                <div className="laser-grid reveal">
+                  {group.devices.map((d) => (
+                    <div className="laser-card" key={d.name}>
+                      <Media src={d.img} label={d.name} className="laser-card__ph" />
+                      <div className="laser-card__body">
+                        <h3 className="laser-card__name">{d.name}</h3>
+                        <p className="laser-card__desc">{d.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          ))}
+        </>
       )}
 
       {/* BOOK CTA */}
