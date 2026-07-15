@@ -110,15 +110,11 @@ export default function About() {
         <div className="wrap">
           <div className="team">
             <div className="team__photo reveal">
-              <video
+              <img
                 className="team__img"
-                src="/team.mp4"
-                poster="/team-poster.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
+                src="/team-poster.jpg"
+                alt="The Nuga Skin Clinic team"
+                loading="lazy"
               />
             </div>
             <div className="team__text reveal">

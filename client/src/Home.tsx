@@ -219,8 +219,20 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <iframe className="visit__map reveal" title="Nuga Skin Clinic location" loading="lazy"
-              src="https://www.google.com/maps?q=2005+Boggs+Rd+%23101,+Duluth,+GA+30096&output=embed" />
+            <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <div style={{ display: "flex", gap: 12 }}>
+                <a href={CONFIG.INSTAGRAM} target="_blank" rel="noreferrer" aria-label="Instagram"
+                  style={{ width: 42, height: 42, borderRadius: "50%", display: "grid", placeItems: "center", background: "var(--ink, #2e2a24)", color: "#fff" }}>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.5 1.6 1 .5.5.8 1 1 1.6.3.6.4 1.3.5 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3-.2.6-.5 1.1-1 1.6-.5.5-1 .8-1.6 1-.6.3-1.3.4-2.3.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5-.6-.2-1.1-.5-1.6-1-.5-.5-.8-1-1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.5-1.1 1-1.6.5-.5 1-.8 1.6-1 .6-.3 1.3-.4 2.3-.5C9 2 9.3 2 12 2zm0 3.4a6.6 6.6 0 100 13.2 6.6 6.6 0 000-13.2zm0 1.8a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm5.3-3.1a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
+                </a>
+                <a href={CONFIG.FACEBOOK} target="_blank" rel="noreferrer" aria-label="Facebook"
+                  style={{ width: 42, height: 42, borderRadius: "50%", display: "grid", placeItems: "center", background: "var(--ink, #2e2a24)", color: "#fff" }}>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 9h2.5l.3-3H14V4.5c0-.8.2-1.3 1.4-1.3H17V.6C16.7.5 15.7.5 14.6.5 12.3.5 11 1.8 11 4.3V6H8.5v3H11v9h3V9z"/></svg>
+                </a>
+              </div>
+              <iframe className="visit__map" title="Nuga Skin Clinic location" loading="lazy"
+                src="https://www.google.com/maps?q=2005+Boggs+Rd+%23101,+Duluth,+GA+30096&output=embed" />
+            </div>
           </div>
         </div>
       </section>

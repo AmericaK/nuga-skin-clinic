@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
 /* =========================================================================
    NUGA SKIN CLINIC — Design System
    Palette : Charcoal ink · Porcelain · Antique Gold  (Deep Gold + Charcoal)
-   Type    : Cormorant Garamond (EN display) · Noto Serif KR (KR display)
-             Inter (EN body/UI) · Noto Sans KR (KR body)
+   Type    : Montserrat (EN display, bold sans) · Inter (EN body/UI)
+             Palette moved off forest green -> warm espresso + beige + gold
    Signature: a hairline GOLD "meridian" that threads the whole page
    ========================================================================= */
 
@@ -16,13 +17,13 @@
   --gold-deep: #8a6a2c;    /* hover / depth                                 */
   --gold-tint: #ede3cf;    /* faint gold wash                               */
 
-  --forest: #143a2e;       /* deep forest green — reference brand tone      */
-  --forest-2: #0f2d24;     /* darker green for depth                        */
+  --forest: #3a322a;       /* warm espresso — deep beige-family dark section */
+  --forest-2: #2a241e;     /* darker espresso for depth                     */
 
   --maxw: 1200px;
   --gutter: clamp(20px, 5vw, 64px);
 
-  --f-display: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
+  --f-display: "Montserrat", "Pretendard", "Noto Sans KR", system-ui, sans-serif;
   --f-display-kr: "Noto Serif KR", "Cormorant Garamond", serif;
   --f-body: "Inter", "Noto Sans KR", system-ui, sans-serif;
   --f-kr: "Noto Sans KR", "Inter", system-ui, sans-serif;
@@ -283,7 +284,7 @@ body {
   aspect-ratio: 4 / 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
   background:
     radial-gradient(120% 90% at 78% 18%, rgba(176,138,62,0.22), transparent 60%),
-    linear-gradient(155deg, #1b4436, #0f2d24);
+    linear-gradient(155deg, #4a4136, #2a241e);
 }
 .team__ph-mark { font-family: var(--f-display); font-size: clamp(34px, 5vw, 52px); color: rgba(176,138,62,0.5); }
 .team__ph-cap { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,238,0.5); }
@@ -539,3 +540,12 @@ body {
 .laser-card__body { padding: 20px 22px 24px; }
 .laser-card__name { font-family: var(--f-display); font-weight: 600; font-size: 20px; color: var(--ink); }
 .laser-card__desc { margin-top: 10px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }
+
+
+/* ===== Redesign 2026: bold sans-serif headlines (was serif) ===== */
+.hero__h1,
+.intro__h1,
+.section__title,
+.solhead__title,
+.tx-hero__title,
+.tx-h2 { font-weight: 700; letter-spacing: -0.02em; }
