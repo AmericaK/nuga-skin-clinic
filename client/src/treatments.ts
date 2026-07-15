@@ -70,6 +70,7 @@ export const TREATMENTS: Treatment[] = [
     about:
       "We run a range of medical-grade laser and RF platforms, each suited to a different concern. At your consultation we match the right device — or combination — to your skin and your goals.",
     goodFor: ["Pigmentation & melasma", "Acne scars", "Uneven tone & redness"],
+    deviceImg: "/laser-device.jpg",
     laserGroups: [
       {
         concern: "Lifting",
