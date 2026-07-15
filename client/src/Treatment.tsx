@@ -207,7 +207,7 @@ export default function Treatment({ slug }: { slug: string }) {
                     <div key={d.name} style={{ display: "flex", flexWrap: "wrap", gap: 30, alignItems: "flex-start", background: "#fff", border: "1px solid rgba(20,18,15,0.08)", borderRadius: 16, padding: 24 }}>
                       <div style={{ flex: "0 0 340px", maxWidth: "100%" }}>
                         {d.img ? (
-                          <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", aspectRatio: "1 / 1", objectFit: "contain", display: "block", borderRadius: 12 }} onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />
+                          <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", aspectRatio: "1 / 1", objectFit: group.imgCover ? "cover" : "contain", display: "block", borderRadius: 12 }} onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />
                         ) : (
                           <div style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 12, background: "#f4f1ec" }} />
                         )}

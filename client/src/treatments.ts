@@ -19,7 +19,7 @@ export type Treatment = {
   treatmentAreas?: string[]; // "Treatment areas" chips
   faq?: { q: string; a: string }[]; // FAQ (collapsible)
   groupsTitle?: string; // heading above the grouped cards (defaults to laser wording)
-  deviceGroups?: { concern: string; heading?: string; intro?: string; devices: { name: string; img?: string; desc: string; howImg?: string; gallery?: string[] }[] }[];
+  deviceGroups?: { concern: string; heading?: string; intro?: string; imgCover?: boolean; devices: { name: string; img?: string; desc: string; howImg?: string; gallery?: string[] }[] }[];
 };
 
 export const TREATMENTS: Treatment[] = [
@@ -283,10 +283,72 @@ export const TREATMENTS: Treatment[] = [
     name: "Facials & Lymphatic",
     img: "/t-facial.jpg",
     col: 3,
-    summary: "Relax, rejuvenate, and detoxify with customized facials and massages.",
+    summary: "Customized facials \u2014 signature cleansing to gold, oxygen, PRP and LDM.",
     about:
-      "Customized facials cleanse, hydrate, and renew your skin, while lymphatic drainage massage helps reduce puffiness and support circulation — a restorative reset for skin and body.",
-    goodFor: ["Dull, tired skin", "Puffiness", "Relaxation & detox"],
+      "Every facial is tailored to your skin on the day \u2014 from deep cleansing and hydration to advanced, regenerative treatments. Our estheticians combine professional devices, light therapy and quality actives, and lymphatic drainage is available to reduce puffiness and support circulation.",
+    goodFor: ["Dull, tired skin", "Congested pores", "Glow & maintenance"],
+    groupsTitle: "Our facial menu",
+    deviceGroups: [
+      {
+        concern: "Signature Facials",
+        heading: "Cleanse, renew, glow.",
+        imgCover: true,
+        devices: [
+          {
+            name: "Signature Customized Facial",
+            img: "/fac-signature.jpg",
+            desc: "Our foundational facial \u2014 gentle exfoliation, deep-pore cleansing with steam, and extraction of blackheads, whiteheads and impurities. Your esthetician selects the right professional tools for your skin that day, finishing with a cream mask and modeling mask for smoother, firmer skin.",
+          },
+          {
+            name: "Acne Treatment Facial",
+            img: "/fac-acne.jpg",
+            desc: "Customized for acne-prone skin. It includes everything in the Signature Facial, plus Aqua Peeling with a BHA solution to unclog pores and alternating red and blue LED light therapy to calm acne-causing bacteria \u2014 finished with a sebum-control cream mask and a soothing silver modeling mask.",
+          },
+          {
+            name: "Pure Oxygen Facial",
+            img: "/fac-oxygen.jpg",
+            desc: "A painless, non-invasive airbrush infusion of pure oxygen, vitamins, antioxidants and hyaluronic acid, followed by red LED light therapy to support collagen. Results are immediate \u2014 skin looks smoother, softer and refreshed.",
+          },
+          {
+            name: "Pure 24K Gold",
+            img: "/fac-gold.jpg",
+            desc: "A luxury facial finished with a pure 24-karat gold-foil mask. It lifts, firms, brightens and detoxifies while calming redness and softening fine lines, evening skin tone for an immediate, healthy glow \u2014 lovely as a one-time treat or an ongoing ritual.",
+          },
+          {
+            name: "Special Care Hydra Facial",
+            img: "/fac-hydra.jpg",
+            desc: "Advanced aqua hydro-peel technology resurfaces the top layer of skin and infuses willow-bark extract deep into the pores, followed by cryotherapy. It helps clear dead skin, soften acne and scarring, and refine fine lines and pores \u2014 leaving skin polished and radiant.",
+          },
+        ],
+      },
+      {
+        concern: "Advanced & Regenerative",
+        heading: "Repair & revitalize.",
+        imgCover: true,
+        devices: [
+          {
+            name: "Stem Cell / MTS",
+            img: "/fac-mts.jpg",
+            desc: "Microneedle therapy uses a roller of ultra-fine needles to activate the skin's own repair response and drive collagen production, helping improve wrinkles, enlarged pores, acne scars and sagging for firmer, revitalized skin.",
+          },
+          {
+            name: "Forma Lifting",
+            img: "/fac-forma.jpg",
+            desc: "A safe, non-surgical radiofrequency treatment that gently heats the deeper layers of skin to contract existing collagen and stimulate new growth \u2014 for tighter, smoother, more youthful-looking skin with no downtime.",
+          },
+          {
+            name: "Deep Clean LDM Skin Repair",
+            img: "/fac-ldm.jpg",
+            desc: "LDM (Local Dynamic Micro-ultrasound) uses dual-frequency ultrasound to boost circulation and support the skin's repair processes \u2014 calming redness, driving deeper absorption of nutrients, and helping hydrate, tighten and rejuvenate. It pairs beautifully with light and radiofrequency treatments.",
+          },
+          {
+            name: "PRP",
+            img: "/fac-prp.jpg",
+            desc: "PRP is a natural serum drawn from your own blood, rich in growth factors. Paired with microneedling, it stimulates renewal for improved elasticity and more even tone, leaving skin smoother, clearer and visibly refreshed over the following weeks.",
+          },
+        ],
+      },
+    ],
   },
 ];
 
