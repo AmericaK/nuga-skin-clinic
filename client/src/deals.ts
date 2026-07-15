@@ -14,4 +14,5 @@ export const DEALS: Deal[] = [
   // { img: "/deal-2.jpg", title: "September Special" },
 ];
 
-export const BOOKING_URL = "https://www.vagaro.com/nugaskincareclinic";
+// Booking now routes to the on-site Contact form (emails the clinic inbox).
+export const BOOKING_URL = "/contact";
