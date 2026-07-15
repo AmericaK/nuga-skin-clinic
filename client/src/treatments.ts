@@ -18,7 +18,7 @@ export type Treatment = {
   resultsGallery?: string[]; // flat before/after gallery (portrait images)
   treatmentAreas?: string[]; // "Treatment areas" chips
   faq?: { q: string; a: string }[]; // FAQ (collapsible)
-  laserGroups?: { concern: string; intro?: string; devices: { name: string; img?: string; desc: string; gallery?: string[] }[] }[];
+  laserGroups?: { concern: string; intro?: string; devices: { name: string; img?: string; desc: string; howImg?: string; gallery?: string[] }[] }[];
 };
 
 export const TREATMENTS: Treatment[] = [
@@ -88,11 +88,13 @@ export const TREATMENTS: Treatment[] = [
           {
             name: "Scarlet RF",
             img: "/laser-scarlet.jpg",
+            howImg: "/laser-scarlet-how.jpg",
             desc: "Short-pulse RF microneedling that increases skin density to firm and lift while treating active acne, acne scars, enlarged pores, and pigmentation. FDA-cleared, safe for every skin type, with minimal downtime.",
           },
           {
             name: "Noable Laser (1,450 nm)",
             img: "/laser-noable.jpg",
+            howImg: "/laser-noable-how.jpg",
             desc: "Targets the sebaceous glands at the root of acne while stimulating collagen — calming breakouts, controlling oil, and softening acne scars. A built-in cooling device protects the skin's surface throughout.",
           },
           {
@@ -109,6 +111,7 @@ export const TREATMENTS: Treatment[] = [
           {
             name: "Agnes RF",
             img: "/laser-agnes.jpg",
+            howImg: "/laser-agnes-how.jpg",
             desc: "Precision RF microneedling that treats acne at its source and doubles as a non-surgical contouring tool for the jawline and under-eyes. Minimally invasive, safe for all skin tones, and quick to recover from.",
             gallery: ["/laser-agnes-r1.jpg"],
           },

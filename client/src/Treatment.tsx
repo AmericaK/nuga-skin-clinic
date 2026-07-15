@@ -209,6 +209,20 @@ export default function Treatment({ slug }: { slug: string }) {
                       <div className="laser-card__body">
                         <h3 className="laser-card__name">{d.name}</h3>
                         <p className="laser-card__desc">{d.desc}</p>
+                        {d.howImg && (
+                          <div style={{ marginTop: 14 }}>
+                            <span style={{ display: "block", fontSize: 11, letterSpacing: ".09em", textTransform: "uppercase", color: "var(--gold-deep)", fontWeight: 700, marginBottom: 8 }}>
+                              How it works
+                            </span>
+                            <img
+                              src={d.howImg}
+                              alt={`How ${d.name} works`}
+                              loading="lazy"
+                              style={{ width: "100%", borderRadius: 8, display: "block" }}
+                              onError={(e) => { e.currentTarget.style.display = "none"; }}
+                            />
+                          </div>
+                        )}
                         {d.gallery && d.gallery.length > 0 && (
                           <div style={{ marginTop: 14 }}>
                             <span style={{ display: "block", fontSize: 11, letterSpacing: ".09em", textTransform: "uppercase", color: "var(--gold-deep)", fontWeight: 700, marginBottom: 8 }}>
