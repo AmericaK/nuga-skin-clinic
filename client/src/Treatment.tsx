@@ -209,6 +209,28 @@ export default function Treatment({ slug }: { slug: string }) {
                       <div className="laser-card__body">
                         <h3 className="laser-card__name">{d.name}</h3>
                         <p className="laser-card__desc">{d.desc}</p>
+                        {d.gallery && d.gallery.length > 0 && (
+                          <div style={{ marginTop: 14 }}>
+                            <span style={{ display: "block", fontSize: 11, letterSpacing: ".09em", textTransform: "uppercase", color: "var(--gold-deep)", fontWeight: 700, marginBottom: 8 }}>
+                              Before &amp; After
+                            </span>
+                            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                              {d.gallery.map((im, i) => (
+                                <img
+                                  key={i}
+                                  src={im}
+                                  alt={`${d.name} result ${i + 1}`}
+                                  loading="lazy"
+                                  style={{ flex: d.gallery!.length > 1 ? "1 1 30%" : "1 1 100%", minWidth: 120, maxWidth: "100%", borderRadius: 8, display: "block" }}
+                                  onError={(e) => { e.currentTarget.style.display = "none"; }}
+                                />
+                              ))}
+                            </div>
+                            <p style={{ fontSize: 11, color: "var(--ink-soft, #8a8178)", marginTop: 8 }}>
+                              * Individual results vary.
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}

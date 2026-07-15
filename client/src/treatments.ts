@@ -18,7 +18,7 @@ export type Treatment = {
   resultsGallery?: string[]; // flat before/after gallery (portrait images)
   treatmentAreas?: string[]; // "Treatment areas" chips
   faq?: { q: string; a: string }[]; // FAQ (collapsible)
-  laserGroups?: { concern: string; intro?: string; devices: { name: string; img?: string; desc: string }[] }[];
+  laserGroups?: { concern: string; intro?: string; devices: { name: string; img?: string; desc: string; gallery?: string[] }[] }[];
 };
 
 export const TREATMENTS: Treatment[] = [
@@ -87,7 +87,7 @@ export const TREATMENTS: Treatment[] = [
         devices: [
           {
             name: "Scarlet RF",
-            img: "/laser-scarlet.png",
+            img: "/laser-scarlet.jpg",
             desc: "Short-pulse RF microneedling that increases skin density to firm and lift while treating active acne, acne scars, enlarged pores, and pigmentation. FDA-cleared, safe for every skin type, with minimal downtime.",
           },
           {
@@ -99,16 +99,18 @@ export const TREATMENTS: Treatment[] = [
             name: "Laser Genesis",
             img: "/laser-genesis.jpg",
             desc: "Gently warms the dermis to stimulate fresh collagen — smoothing texture, softening fine lines, refining pores, and easing redness and acne scars, with no downtime.",
+            gallery: ["/laser-genesis-r1.jpg", "/laser-genesis-r2.jpg", "/laser-genesis-r3.jpg"],
           },
           {
             name: "CO₂ Laser",
-            img: "/laser-co2.png",
+            img: "/laser-co2.jpg",
             desc: "Fractional CO₂ resurfacing vaporizes damaged tissue with precision to improve scars, texture, and lesions, while the controlled heat tightens skin and boosts collagen for a fresher look.",
           },
           {
             name: "Agnes RF",
             img: "/laser-agnes.jpg",
             desc: "Precision RF microneedling that treats acne at its source and doubles as a non-surgical contouring tool for the jawline and under-eyes. Minimally invasive, safe for all skin tones, and quick to recover from.",
+            gallery: ["/laser-agnes-r1.jpg"],
           },
         ],
       },
