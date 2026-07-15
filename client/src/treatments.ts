@@ -116,6 +116,7 @@ export const TREATMENTS: Treatment[] = [
         devices: [
           {
             name: "Pico Laser",
+            img: "/laser-pico.jpg",
             desc: "An ultra-short picosecond laser that shatters pigment — dark spots, melasma, and acne scars — with very little heat, so you get brighter, more even skin with minimal discomfort or downtime.",
           },
           {
