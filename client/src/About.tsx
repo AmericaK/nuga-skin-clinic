@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
    - STAFF[].role / bio : title & short bio. Use facts only.
 */
 
-const BOOKING_URL = "https://www.vagaro.com/nugaskincareclinic";
 
 // Real staff info + photos. Bios are factual, role-based.
 const STAFF = [
@@ -81,7 +80,8 @@ export default function About() {
             <a className="nav__link" href="/#reviews">Results</a>
             <a className="nav__link" href="/about">About</a>
             <a className="nav__link" href="/#visit">Visit</a>
-            <a className="btn btn--solid nav__cta" href={BOOKING_URL} target="_blank" rel="noreferrer">
+            <a className="nav__link" href="/contact">Contact</a>
+            <a className="btn btn--solid nav__cta" href="/contact">
               Book
             </a>
           </nav>
@@ -157,7 +157,7 @@ export default function About() {
           </div>
 
           <div className="about__cta reveal">
-            <a className="btn btn--solid" href={BOOKING_URL} target="_blank" rel="noreferrer">
+            <a className="btn btn--solid" href="/contact">
               Book a consultation
             </a>
           </div>

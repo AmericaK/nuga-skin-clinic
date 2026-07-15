@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { TREATMENTS, BOOKING_URL } from "./treatments";
+import { TREATMENTS } from "./treatments";
 
 function Media({ src, label, className }: { src?: string; label: string; className?: string }) {
   if (!src) return <div className={`tx-ph ${className || ""}`} data-label={label} />;
@@ -57,7 +57,8 @@ export default function Treatment({ slug }: { slug: string }) {
             <a className="nav__link" href="/#reviews">Results</a>
             <a className="nav__link" href="/about">About</a>
             <a className="nav__link" href="/#visit">Visit</a>
-            <a className="btn btn--solid nav__cta" href={BOOKING_URL} target="_blank" rel="noreferrer">Book</a>
+            <a className="nav__link" href="/contact">Contact</a>
+            <a className="btn btn--solid nav__cta" href="/contact">Book</a>
           </nav>
           <button className="nav__burger" aria-label="Menu">☰</button>
         </div>
@@ -71,7 +72,7 @@ export default function Treatment({ slug }: { slug: string }) {
             <h1 className="tx-hero__title">{t.name}</h1>
             <p className="tx-hero__summary">{t.summary}</p>
             <div className="tx-hero__cta">
-              <a className="btn btn--solid" href={BOOKING_URL} target="_blank" rel="noreferrer">Book a consultation</a>
+              <a className="btn btn--solid" href="/contact">Book a consultation</a>
               <a className="btn btn--ghost" href="/#services">← All treatments</a>
             </div>
           </div>
@@ -269,7 +270,7 @@ export default function Treatment({ slug }: { slug: string }) {
             Book a consultation and we'll build a plan around your skin.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <a className="btn btn--gold" href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
+            <a className="btn btn--gold" href="/contact">Book now</a>
             <a className="btn btn--line" href="tel:+17706872545">Call (770) 687-2545</a>
           </div>
         </div>

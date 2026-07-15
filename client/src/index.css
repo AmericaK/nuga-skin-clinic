@@ -549,3 +549,27 @@ body {
 .solhead__title,
 .tx-hero__title,
 .tx-h2 { font-weight: 700; letter-spacing: -0.02em; }
+
+/* ===== Contact / Booking form ===== */
+.cform__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.cform__row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.cfield { margin-bottom: 20px; }
+.cfield__label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.01em; }
+.cfield__label span { color: var(--gold-deep); }
+.cinput, .ctextarea { width: 100%; background: var(--porcelain-2); border: 1px solid transparent; border-radius: 12px; padding: 14px 16px; font-family: var(--f-body); font-size: 15px; color: var(--ink); transition: border-color 0.2s, background 0.2s; }
+.cinput:focus, .ctextarea:focus { outline: none; border-color: var(--gold); background: #fff; }
+.ctextarea { min-height: 150px; resize: vertical; line-height: 1.5; }
+.cchecks { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+.ccheck { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 16px; color: var(--ink-soft); }
+.ccheck input { width: 20px; height: 20px; accent-color: var(--gold-deep); cursor: pointer; flex: none; }
+.cform__submit { width: 100%; margin-top: 8px; }
+.cform__submit:disabled { opacity: 0.6; cursor: default; }
+.cnote { margin-top: 14px; font-size: 14px; line-height: 1.5; }
+.cinfo__row { margin-bottom: 22px; }
+.cinfo__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); }
+.cinfo__val { font-size: 18px; color: var(--ink); margin-top: 4px; }
+.cmap { width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: 14px; margin-top: 8px; }
+@media (max-width: 820px) {
+  .cform__grid { grid-template-columns: 1fr; }
+  .cform__row { grid-template-columns: 1fr; }
+}

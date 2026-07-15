@@ -87,7 +87,8 @@ export default function Home() {
             <a className="nav__link" href="#reviews">Results</a>
             <a className="nav__link" href="/about">About</a>
             <a className="nav__link" href="#visit">Visit</a>
-            <a className="btn btn--solid nav__cta" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book</a>
+            <a className="nav__link" href="/contact">Contact</a>
+            <a className="btn btn--solid nav__cta" href="/contact">Book</a>
           </nav>
           <button className="nav__burger" aria-label="Menu">☰</button>
         </div>
@@ -127,7 +128,7 @@ export default function Home() {
             so you can restore and maintain healthy, radiant skin.
           </p>
           <div className="intro__cta">
-            <a className="btn btn--gold" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book a consultation</a>
+            <a className="btn btn--gold" href="/contact">Book a consultation</a>
             <a className="btn btn--line" href="#services">Explore treatments</a>
           </div>
           <div className="intro__trust">
@@ -207,7 +208,7 @@ export default function Home() {
                 <span className="visit__label">Hours</span>
                 <dl className="visit__hours"><dt>Mon–Sat</dt><dd>9:30 AM – 6:30 PM</dd><dt>Sun</dt><dd>Closed</dd></dl>
               </div>
-              <div className="visit__row"><a className="btn btn--solid" href={CONFIG.BOOKING_URL} target="_blank" rel="noreferrer">Book now</a></div>
+              <div className="visit__row"><a className="btn btn--solid" href="/contact">Book now</a></div>
               <div className="visit__social">
                 <a href={CONFIG.INSTAGRAM} target="_blank" rel="noreferrer" aria-label="Instagram">
                   <svg viewBox="0 0 24 24" aria-hidden><path d="M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.5 1.6 1 .5.5.8 1 1 1.6.3.6.4 1.3.5 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3-.2.6-.5 1.1-1 1.6-.5.5-1 .8-1.6 1-.6.3-1.3.4-2.3.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5-.6-.2-1.1-.5-1.6-1-.5-.5-.8-1-1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.5-1.1 1-1.6.5-.5 1-.8 1.6-1 .6-.3 1.3-.4 2.3-.5C9 2 9.3 2 12 2zm0 3.4a6.6 6.6 0 100 13.2 6.6 6.6 0 000-13.2zm0 1.8a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm5.3-3.1a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
