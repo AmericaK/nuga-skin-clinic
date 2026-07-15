@@ -80,6 +80,12 @@ export const TREATMENTS: Treatment[] = [
             img: "/laser-inmode.png",
             desc: "A dual radiofrequency system. Mini FX pairs gentle suction with high-frequency energy to reduce stubborn fat around the chin and jawline, while Forma warms the deeper skin to rebuild collagen and elastin — for a slimmer, firmer, brighter face.",
           },
+          {
+            name: "Shurink Lifting",
+            img: "/laser-shurink.jpg",
+            howImg: "/laser-shurink-how.jpg",
+            desc: "A non-surgical HIFU lift. Focused ultrasound forms micro heat-coagulation points across the superficial dermis, deep dermis, and the SMAS layer, prompting collagen and elastic-fiber regeneration to firm and lift — full face (600 shots) or half face (300 shots), in about 15–20 minutes with no downtime.",
+          },
         ],
       },
       {
@@ -180,14 +186,35 @@ export const TREATMENTS: Treatment[] = [
     goodFor: ["Expression lines", "Volume loss", "Contour & balance"],
   },
   {
-    slug: "shurink",
-    name: "Shurink Lifting",
-    img: "/t-shurink.jpg",
+    slug: "ultherapy",
+    name: "Ultherapy",
+    img: "/t-ultherapy.jpg",
     col: 3,
-    summary: "Regenerate collagen and remove wrinkles.",
+    summary: "Ultrasound skin lifting for natural-looking results — no surgery, no downtime.",
     about:
-      "Shurink delivers focused ultrasound energy to the deep foundational layers of the skin — the layers addressed in a surgical lift. It regenerates collagen over time to lift and tighten, with little to no downtime.",
-    goodFor: ["Loss of firmness", "Wrinkles", "Non-surgical lifting"],
+      "Ultherapy uses focused ultrasound to reach the deep foundational layer addressed in a surgical lift, stimulating your own collagen and elastin. Real-time ultrasound imaging lets us see exactly where the energy is delivered — so it goes where it benefits you most.",
+    goodFor: ["Brow, chin & neck lifting", "Loss of firmness", "Décolletage lines"],
+    whatIs:
+      "Ultherapy relies on ultrasound therapy to go deeper than other non-invasive treatments for collagen stimulation. It also leverages traditional ultrasound imaging, so we can see the layers of tissue being treated and deliver the energy precisely where it benefits you most.",
+    deviceImg: "/ultherapy-device.jpg",
+    whyImg: "/ultherapy-why.jpg",
+    benefits: [
+      "Lifts and tightens skin tissue",
+      "Stimulates production of new collagen and elastin",
+      "Lifts skin on the brows, neck and chin",
+      "Treats the deep tissue planes like a modern facelift",
+      "Counteracts gravity and sun exposure — with no downtime",
+      "FDA-cleared to lift the neck, under-chin and brow, and to improve décolletage lines",
+      "More than a million treatments delivered worldwide",
+    ],
+    treatmentAreas: [
+      "Chin", "Cheeks", "Neck", "Brow", "Décolletage", "Chest", "Stomach", "Buttocks",
+    ],
+    faq: [
+      { q: "How many treatments will I need?", a: "Most patients see visible results after a single session. Depending on the degree of skin laxity, some benefit from an additional session, and many choose a yearly follow-up to maintain their results." },
+      { q: "Is Ultherapy surgery?", a: "No — it's non-invasive. Ultherapy lifts and tightens without incisions and without affecting the surface of your skin, so there's no downtime." },
+      { q: "Is Ultherapy FDA-cleared?", a: "Yes. Ultherapy is FDA-cleared to non-invasively lift skin on the neck, under the chin and on the brow, and to improve lines and wrinkles on the décolletage." },
+    ],
   },
   {
     slug: "facials",
