@@ -202,12 +202,18 @@ export default function Treatment({ slug }: { slug: string }) {
                   <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>{group.concern}</p>
                   <h2 className="section__title">{group.concern === "Lifting" ? "Lift & tighten." : group.concern === "Brightening" ? "Brighten & even out." : "Clear & resurface."}</h2>
                 </div>
-                <div className="laser-grid reveal">
+                <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                   {group.devices.map((d) => (
-                    <div className="laser-card" key={d.name}>
-                      <Media src={d.img} label={d.name} className="laser-card__ph" />
-                      <div className="laser-card__body">
-                        <h3 className="laser-card__name">{d.name}</h3>
+                    <div key={d.name} style={{ display: "flex", flexWrap: "wrap", gap: 30, alignItems: "flex-start", background: "#fff", border: "1px solid rgba(20,18,15,0.08)", borderRadius: 16, padding: 24 }}>
+                      <div style={{ flex: "0 0 340px", maxWidth: "100%" }}>
+                        {d.img ? (
+                          <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", aspectRatio: "1 / 1", objectFit: "contain", display: "block", borderRadius: 12 }} onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />
+                        ) : (
+                          <div style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 12, background: "#f4f1ec" }} />
+                        )}
+                      </div>
+                      <div style={{ flex: "1 1 380px", minWidth: 0 }}>
+                        <h3 className="laser-card__name" style={{ marginTop: 0 }}>{d.name}</h3>
                         <p className="laser-card__desc">{d.desc}</p>
                         {d.howImg && (
                           <div style={{ marginTop: 14 }}>
