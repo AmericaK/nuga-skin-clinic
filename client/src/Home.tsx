@@ -73,6 +73,28 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
+  // If we arrived with a hash (e.g. clicking "Services" from another page),
+  // scroll to that section once it has rendered. Retries cover late layout/images.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const NAV = 96;
+    let tries = 0;
+    const go = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - NAV;
+        window.scrollTo({ top: y, behavior: "auto" });
+      } else if (tries++ < 12) {
+        setTimeout(go, 80);
+      }
+    };
+    requestAnimationFrame(go);
+    const t = setTimeout(go, 350);
+    window.addEventListener("load", go, { once: true });
+    return () => { clearTimeout(t); window.removeEventListener("load", go); };
+  }, []);
+
   return (
     <>
       {/* ===== NAV ===== */}
