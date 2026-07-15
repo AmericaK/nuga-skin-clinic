@@ -196,12 +196,12 @@ export default function Home() {
       {/* ===== VISIT ===== */}
       <section className="section" id="visit">
         <div className="wrap">
-          <div className="section__head reveal">
-            <p className="eyebrow section__eyebrow">Visit us</p>
-            <h2 className="section__title">Duluth, Georgia.</h2>
-          </div>
           <div className="visit__grid">
             <div className="visit__nap reveal">
+              <div className="section__head">
+                <p className="eyebrow section__eyebrow">Visit us</p>
+                <h2 className="section__title">Duluth, Georgia.</h2>
+              </div>
               <div className="visit__row"><span className="visit__label">Address</span><span className="visit__val">{CONFIG.address}</span></div>
               <div className="visit__row"><span className="visit__label">Phone</span><span className="visit__val"><a href={CONFIG.phoneHref}>{CONFIG.phone}</a></span></div>
               <div className="visit__row">
