@@ -265,13 +265,13 @@ export default function Treatment({ slug }: { slug: string }) {
       {/* BOOK CTA */}
       <section className="section section--dark">
         <div className="wrap tx-cta">
-          <h2 className="section__title" style={{ color: "#fff" }}>Ready to start?</h2>
-          <p style={{ color: "rgba(247,243,238,0.82)", margin: "14px 0 26px", fontSize: 17 }}>
+          <h2 className="section__title" style={{ color: "var(--ink)" }}>Ready to start?</h2>
+          <p style={{ color: "rgba(28,27,26,0.72)", margin: "14px 0 26px", fontSize: 17 }}>
             Book a consultation and we'll build a plan around your skin.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <a className="btn btn--gold" href="/contact">Book now</a>
-            <a className="btn btn--line" href="tel:+17706872545">Call (770) 687-2545</a>
+            <a className="btn btn--solid" href="/contact">Book now</a>
+            <a className="btn btn--ghost" href="tel:+17706872545">Call (770) 687-2545</a>
           </div>
         </div>
       </section>

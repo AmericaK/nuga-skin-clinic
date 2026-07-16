@@ -150,8 +150,8 @@ export default function Home() {
             so you can restore and maintain healthy, radiant skin.
           </p>
           <div className="intro__cta">
-            <a className="btn btn--gold" href="/contact">Book a consultation</a>
-            <a className="btn btn--line" href="#services">Explore treatments</a>
+            <a className="btn btn--solid" href="/contact">Book a consultation</a>
+            <a className="btn btn--ghost" href="#services">Explore treatments</a>
           </div>
           <div className="intro__trust">
             <div className="intro__stat"><b>4.9★</b><span>Google Rating</span></div>
@@ -196,7 +196,7 @@ export default function Home() {
       <section className="section section--dark" id="reviews">
         <div className="wrap">
           <div className="section__head section__head--center reveal">
-            <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>Why Atlanta trusts Nuga</p>
+            <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>Why Atlanta trusts Nuga</p>
             <h2 className="section__title">Results our clients come back for.</h2>
           </div>
           <div className="rev__grid reveal">

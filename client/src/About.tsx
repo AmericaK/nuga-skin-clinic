@@ -118,7 +118,7 @@ export default function About() {
               />
             </div>
             <div className="team__text reveal">
-              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold)" }}>Our team</p>
+              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>Our team</p>
               <h2 className="section__title">One team, one standard of care.</h2>
               <p className="about__lead" style={{ color: "rgba(247,243,238,0.82)" }}>
                 Every member of Nuga is trained to the same standard: listen first, treat with
