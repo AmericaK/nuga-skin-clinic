@@ -10,12 +10,15 @@
 :root {
   --ink: #1c1b1a;          /* warm near-black — text & dark sections        */
   --ink-soft: #45413d;     /* secondary text                                */
-  --porcelain: #f7f3ee;    /* warm ivory base (skin/porcelain)              */
-  --porcelain-2: #efe8de;  /* slightly deeper ivory for banding             */
+  --porcelain: #f6f2ec;    /* Le Ciel warm ivory base                        */
+  --porcelain-2: #e7dccd;  /* Le Ciel soft sand — banding / input fills      */
   --stone: #d9cfc1;        /* soft neutral for hairlines on light           */
-  --gold: #b08a3e;         /* muted antique gold — used with restraint      */
-  --gold-deep: #8a6a2c;    /* hover / depth                                 */
-  --gold-tint: #ede3cf;    /* faint gold wash                               */
+  --gold: #a9977f;         /* stone-taupe accent (was gold) — fills & on-dark */
+  --gold-deep: #6f6150;    /* deep mocha accent — small labels & hovers      */
+  --gold-tint: #e7ddcd;    /* faint stone wash                              */
+
+  --btn: #7d6f5d;          /* Le Ciel mocha/taupe — primary button (was black) */
+  --btn-deep: #6a5c49;     /* button hover                                  */
 
   --forest: #3a322a;       /* warm espresso — deep beige-family dark section */
   --forest-2: #2a241e;     /* darker espresso for depth                     */
@@ -86,8 +89,8 @@ body {
   cursor: pointer; text-decoration: none;
   transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
 }
-.btn--solid { background: var(--ink); color: var(--porcelain); }
-.btn--solid:hover { background: var(--gold-deep); border-color: var(--gold-deep); }
+.btn--solid { background: var(--btn); color: #fff; border-color: var(--btn); }
+.btn--solid:hover { background: var(--btn-deep); border-color: var(--btn-deep); }
 .btn--ghost { background: transparent; color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: var(--porcelain); }
 .btn--onDark { border-color: var(--porcelain); color: var(--porcelain); }
