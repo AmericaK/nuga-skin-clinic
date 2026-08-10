@@ -15,7 +15,8 @@ export type Treatment = {
   whyImg?: string;       // image for the "Why X?" section (shown uncropped)
   benefits?: string[];   // "Why X?" bullet list
   results?: ResultGroup[]; // Clinical Results (before/after groups)
-  resultsGallery?: string[]; // flat before/after gallery (portrait images)
+  resultsGallery?: string[];
+  beforeAfter?: string[]; // flat before/after gallery (portrait images)
   treatmentAreas?: string[]; // "Treatment areas" chips
   faq?: { q: string; a: string }[]; // FAQ (collapsible)
   groupsTitle?: string; // heading above the grouped cards (defaults to laser wording)
@@ -146,10 +147,12 @@ export const TREATMENTS: Treatment[] = [
     name: "UltraClear",
     img: "/t-ultraclear.jpg",
     col: 2,
-    summary: "Cold fiber laser resurfacing â powerful renewal with less downtime, for every skin tone.",
+    summary: "Cold fiber laser resurfacing — powerful renewal with less downtime, for every skin tone.",
     about:
       "UltraClear is the world's first 2910 nm cold fiber laser. It resurfaces and renews the skin — smoothing texture, softening lines, and evening tone — while its cooler technology keeps the treatment more comfortable and recovery faster than traditional resurfacing lasers. Because it runs cooler, it's a safer option across a wide range of skin tones.",
     goodFor: ["Texture, tone & pores", "Fine lines & wrinkles", "Acne & surgical scars"],
+    deviceImg: "/ultraclear-device.jpg",
+    beforeAfter: ["/ultraclear-ba1.jpg", "/ultraclear-ba2.jpg", "/ultraclear-ba3.jpg", "/ultraclear-ba4.jpg"],
     whatIs:
       "UltraClear is a cold fiber laser resurfacing platform that treats the skin at precisely controlled depths. Instead of flooding the skin with heat all at once, it delivers energy in a controlled way — improving texture, tone, fine lines, scars, and pigmentation while helping preserve the surrounding skin, so the experience is more comfortable and recovery is faster.",
     benefits: [

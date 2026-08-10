@@ -598,3 +598,7 @@ body {
   .nav.is-open .nav__cta { margin-top: 10px; text-align: center; }
   .nav.is-open .nav__burger { color: var(--gold-deep); }
 }
+
+/* ===== Before & after (full-width, uncropped clinical pairs) ===== */
+.tx-ba { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
+.tx-ba__img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--stone); }

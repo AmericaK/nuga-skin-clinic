@@ -163,6 +163,27 @@ export default function Treatment({ slug }: { slug: string }) {
         </section>
       ) : null}
 
+      {/* BEFORE & AFTER (full-width, uncropped) */}
+      {t.beforeAfter && t.beforeAfter.length > 0 && (
+        <section className="section">
+          <div className="wrap">
+            <div className="section__head section__head--center reveal">
+              <p className="eyebrow section__eyebrow" style={{ color: "var(--gold-deep)" }}>Clinical Results</p>
+              <h2 className="section__title">Before &amp; after.</h2>
+            </div>
+            <div className="tx-ba reveal">
+              {t.beforeAfter.map((im, i) => (
+                <img key={i} src={im} alt="Before and after" loading="lazy" className="tx-ba__img"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }} />
+              ))}
+            </div>
+            <p className="tx-note" style={{ textAlign: "center", marginTop: 22 }}>
+              * Individual results vary. Photos courtesy of the manufacturer; your plan is set at consultation.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* FAQ */}
       {t.faq && t.faq.length > 0 && (
         <section className="section section--soft">
