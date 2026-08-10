@@ -10,8 +10,8 @@ export type Deal = {
 };
 
 export const DEALS: Deal[] = [
-  { img: "/deal-1.jpg", title: "Big Summer Event — limited time" },
-  // { img: "/deal-2.jpg", title: "September Special" },
+  { img: "/deal-2.jpg", title: "Summer Brightening Event — limited time" },
+  // { img: "/deal-3.jpg", title: "Next promotion" },
 ];
 
 // Booking now routes to the on-site Contact form (emails the clinic inbox).
