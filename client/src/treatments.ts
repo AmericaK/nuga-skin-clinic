@@ -3,6 +3,7 @@ export type ResultGroup = { title?: string; caption?: string; imgs: string[] };
 
 export type Treatment = {
   slug: string;
+  tier: "signature" | "service";
   name: string;
   img: string;
   col: 1 | 2 | 3;
