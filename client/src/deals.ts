@@ -11,7 +11,6 @@ export type Deal = {
 
 export const DEALS: Deal[] = [
   { img: "/deal-3.jpg", title: "VIP Sale — one day event" },
-  { img: "/deal-2.jpg", title: "Summer Brightening Event — limited time" },
   // { img: "/deal-4.jpg", title: "Next promotion" },
 ];
 
