@@ -173,10 +173,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="solgrid reveal">
-            {[1, 2, 3].map((col) => (
-              <div className={`solcol${col !== 2 ? " solcol--offset" : ""}`} key={col}>
-                {TREATMENTS.filter((t) => t.col === col).map((t) => (
+          {[
+            { key: "signature", label: "Signature Devices" },
+            { key: "service", label: "Treatments & Care" },
+          ].map((group) => (
+            <div className="solgroup reveal" key={group.key}>
+              <div className="solgroup__label"><span>{group.label}</span></div>
+              <div className="solrow">
+                {TREATMENTS.filter((t) => t.tier === group.key).map((t) => (
                   <a className="solcard" key={t.name} href={`/treatments/${t.slug}`}>
                     <img src={t.img} alt={t.name} />
                     <span className="solcard__scrim" aria-hidden />
@@ -187,8 +191,8 @@ export default function Home() {
                   </a>
                 ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 

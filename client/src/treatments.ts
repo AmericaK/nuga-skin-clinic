@@ -26,6 +26,7 @@ export type Treatment = {
 export const TREATMENTS: Treatment[] = [
   {
     slug: "thermage",
+    tier: "signature",
     name: "Thermage FLX",
     img: "/t-thermage.jpg",
     col: 1,
@@ -65,6 +66,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     slug: "laser",
+    tier: "service",
     name: "Laser Treatments",
     img: "/t-laser.jpg",
     col: 1,
@@ -144,6 +146,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     slug: "ultraclear",
+    tier: "signature",
     name: "UltraClear",
     img: "/t-ultraclear.jpg",
     col: 2,
@@ -176,6 +179,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     slug: "injectables",
+    tier: "service",
     name: "Injectables",
     img: "/t-injectables.jpg",
     col: 2,
@@ -247,6 +251,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     slug: "ultherapy",
+    tier: "signature",
     name: "Ultherapy Prime",
     img: "/t-ultherapy.jpg",
     col: 3,
@@ -279,6 +284,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     slug: "facials",
+    tier: "service",
     name: "Facials & Lymphatic",
     img: "/t-facial.jpg",
     col: 3,
