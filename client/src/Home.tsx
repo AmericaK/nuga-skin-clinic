@@ -13,8 +13,14 @@ const CONFIG = {
   INSTAGRAM: "https://www.instagram.com/nugaskinclinic/",
   FACEBOOK: "https://www.facebook.com/nugabeautyskincare/",
   GOOGLE_REVIEWS: "https://www.google.com/maps/search/?api=1&query=Nuga%20Skin%20Clinic%20Duluth%20GA",
-  // Hero slideshow: hero1~hero5.jpg in client/public/. 4s crossfade.
-  HERO_IMAGES: ["/hero1.JPG", "/hero2.jpg", "/hero3.jpg", "/hero4.jpg", "/hero5.jpg"],
+  // Hero slideshow: slide image + centered caption. 4s crossfade.
+  HERO_SLIDES: [
+    { img: "/hero1.JPG", title: "Confident skin starts here", sub: "Where Korean skin science meets expert hands." },
+    { img: "/hero2.jpg", title: "Lift and tighten, without surgery", sub: "Ultherapy Prime, Thermage FLX, and UltraClear." },
+    { img: "/hero3.jpg", title: "Age beautifully, naturally", sub: "Subtle, natural-looking results, never overdone." },
+    { img: "/hero4.jpg", title: "Relax, renew, reveal", sub: "Signature facials and lymphatic care." },
+    { img: "/hero5.jpg", title: "Trusted across metro Atlanta", sub: "4.9 stars from 150+ happy clients." },
+  ],
   HERO_INTERVAL: 4000,
 };
 
@@ -50,7 +56,7 @@ export default function Home() {
   // Hero slideshow (auto-advance every 4s)
   useEffect(() => {
     const t = setInterval(
-      () => setSlide((s) => (s + 1) % CONFIG.HERO_IMAGES.length),
+      () => setSlide((s) => (s + 1) % CONFIG.HERO_SLIDES.length),
       CONFIG.HERO_INTERVAL
     );
     return () => clearInterval(t);
@@ -118,17 +124,25 @@ export default function Home() {
 
       {/* ===== HERO (5-image crossfade slideshow, 4s) ===== */}
       <section id="top" className="herofull">
-        {CONFIG.HERO_IMAGES.map((src, i) => (
+        {CONFIG.HERO_SLIDES.map((s, i) => (
           <img
-            key={src}
-            src={src}
+            key={s.img}
+            src={s.img}
             alt=""
             aria-hidden={i !== slide}
             className={`herofull__img${i === slide ? " is-active" : ""}`}
           />
         ))}
+        <div className="herofull__scrim" aria-hidden />
+        <div className="herofull__overlay">
+          <div className="herofull__text" key={slide}>
+            <h2 className="herofull__title">{CONFIG.HERO_SLIDES[slide].title}</h2>
+            <p className="herofull__sub">{CONFIG.HERO_SLIDES[slide].sub}</p>
+          </div>
+          <a className="btn herofull__cta" href="/contact">Free Consultation</a>
+        </div>
         <div className="herofull__dots">
-          {CONFIG.HERO_IMAGES.map((_, i) => (
+          {CONFIG.HERO_SLIDES.map((_, i) => (
             <button
               key={i}
               className={i === slide ? "is-on" : ""}
